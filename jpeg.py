@@ -31,7 +31,7 @@ def compressMe(file, verbose = False):
     picture.save("Komprimeret"+file,  
                  "JPEG",  
                  optimize = True,  
-                 quality = 20) 
+                 quality = 2) 
     return
 
     # Define a main function 
@@ -58,7 +58,7 @@ def main():
     #    if os.path.splitext(file)[1].lower() in formats: 
     #        print('compressing', file) 
     #        compressMe(file, verbose) 
-    compressMe("hej2.jpg")
+    compressMe("2.RGB")
     print("Done") 
   
 # Driver code 
