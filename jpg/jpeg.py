@@ -28,10 +28,10 @@ def compressMe(file, verbose = False):
     # your desired level, The more  
     # the value of quality variable  
     # and lesser the compression 
-    picture.save(file+"_Komprimeret",  
+    picture.save("Komprimeret"+file,  
                  "JPEG",  
                  optimize = True,  
-                 quality = 50) 
+                 quality = 20) 
     return
 
     # Define a main function 
@@ -58,7 +58,7 @@ def main():
     #    if os.path.splitext(file)[1].lower() in formats: 
     #        print('compressing', file) 
     #        compressMe(file, verbose) 
-    compressMe("1.jpg")
+    compressMe("hej2.jpg")
     print("Done") 
   
 # Driver code 
