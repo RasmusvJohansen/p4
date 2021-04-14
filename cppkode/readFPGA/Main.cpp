@@ -37,6 +37,9 @@ void TESTreadFPGA(){
 	}
 }
 
+
+
+int a[7];
 void readFPGA(){
 	
 }
@@ -77,7 +80,24 @@ int main(){
 		cout << pin7 << " :" << digitalRead(pin7) << "\n \n";
 		cout << "\n";
 		usleep(0.2*mikrosekund);
+		a[0] = digitalRead(pin0);
+		a[1] = digitalRead(pin1);
+		a[2] = digitalRead(pin2);
+		a[3] = digitalRead(pin3);
+		a[4] = digitalRead(pin4);
+		a[5] = digitalRead(pin5);
+		a[6] = digitalRead(pin6);
+		a[7] = digitalRead(pin7);
 		
+		unsigned int number = 0b00000000;
+		for (int i=0; i<8; i++){
+			number += a[i] << i;
+		}
+		
+		//number = a[7] << 7 | a[6] << 6 ;
+		
+		cout << number << "\n";
+		usleep(5*mikrosekund);
 		
 	}
 }
