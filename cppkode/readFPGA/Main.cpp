@@ -41,13 +41,13 @@ void readFPGA(){
 	
 }
 
-const int pin0 = 27;
-const int pin1 = 28;
-const int pin2 = 29;
-const int pin3 = 16;
-const int pin4 = 20;
-const int pin5 = 21;
-const int pin6 = 19;
+const int pin0 = 0;
+const int pin1 = 2;
+const int pin2 = 3;
+const int pin3 = 1;
+const int pin4 = 4;
+const int pin5 = 5;
+const int pin6 = 6;
 const int pin7 = 26;
 
 const int mikrosekund = 1000000;
@@ -64,6 +64,8 @@ int main(){
 	pinMode(pin7, INPUT);
 	
 	
+	
+	
 	while(1){
 		cout << pin0 << " :" << digitalRead(pin0) << "\n";
 		cout << pin1 << " :" << digitalRead(pin1) << "\n";
@@ -74,7 +76,9 @@ int main(){
 		cout << pin6 << " :" << digitalRead(pin6) << "\n";
 		cout << pin7 << " :" << digitalRead(pin7) << "\n \n";
 		cout << "\n";
-		usleep(2*mikrosekund);
+		usleep(0.2*mikrosekund);
+		
+		
 	}
 }
 
