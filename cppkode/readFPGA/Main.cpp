@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 #include <unistd.h>
-using namespace std;
+using namespace std; b			
 
 #include "Image.h"  
 

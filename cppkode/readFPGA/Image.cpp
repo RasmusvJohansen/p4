@@ -132,7 +132,7 @@ void Image::Export(const char* path) const
     informationHeader[23] = 0;
     //X pixels per meter (Not specified)
     informationHeader[24] = 0;
-    informationHeader[25] = 0;
+    informationHeader[25] = 0 ;
     informationHeader[26] = 0;
     informationHeader[27] = 0;
     //Y pixels per meter (Not specified)
