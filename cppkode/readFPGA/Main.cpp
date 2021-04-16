@@ -7,6 +7,9 @@
 #include <unistd.h>
 using namespace std;
 
+#include "Image.h"  
+
+
 
 const int mikrosekund = 1000000;
 //Billede størrelse
@@ -17,21 +20,24 @@ const int n = 480;
 struct pixel{
 	int R, G, B;
 };
-pixel image[m][n];
+pixel billede[m][n];
 
 void TESTreadFPGA(){
 	int count;
 	for (int i=0; i<m; i++){
 		for(int j=0; j<n; j++){
-			image[i][j].R = count;
+			billede[i][j].R = count;
+			usleep(0.0001);
 			count++;
 		}
 		for(int j=0; j<n; j++){
-			image[i][j].G = count;
+			billede[i][j].G = count;
+			usleep(0.0001);
 			count++;
 		}
 		for(int j=0; j<n; j++){
-			image[i][j].B = count;
+			billede[i][j].B = count;
+			usleep(0.0001);
 			count++;
 		}
 	}
@@ -48,6 +54,7 @@ const int pin7 = 15;
 unsigned int number = 0b00000000;
 int a[7];
 void readFPGA(){
+	
 	pinMode(pin0, INPUT);
 	pinMode(pin1, INPUT);
 	pinMode(pin2, INPUT);
@@ -64,11 +71,11 @@ void readFPGA(){
 	a[5] = digitalRead(pin5);
 	a[6] = digitalRead(pin6);
 	a[7] = digitalRead(pin7);
+	//cout << a[0];
 	number = 0b00000000;
 	for (int i=0; i<8; i++){
 		number += a[i] << i;
 	}
-	//usleep(0.001);
 }
 
 
@@ -77,78 +84,69 @@ void readFPGA(){
 
 int main(){
 	wiringPiSetup();
-	while(1){
+		
 		int count = 0;
-		for (int i=0; i<m; i++){
-			for(int j=0; j<n; j++){
+		
+		for(int i=0; i<m;i++){
+			for(int j=0; j<n;j++){
 				readFPGA();
-				
+				//cout << number;
 				if(count == 0){
-					image[i][j].R = number;
+					billede[i][j].R = number;
 					count = 1;
-					cout << "også her";
-					break;
+					cout << billede[i][j].R;
+					//usleep(0.00001);
 				}
+				readFPGA();
 				if(count == 1){
-					image[i][j].G = number;
+					billede[i][j].G = number;
 					count = 2;
-					cout << "den er " << "\n";
-					break;
-				}	
+					//usleep(0.00001);
+				}
+				readFPGA();
 				if(count == 2){
-					image[i][j].B = number;
+					billede[i][j].B = number;
 					count = 0;
-					cout << "den er her" << "\n";
-					break;
+					//usleep(0.00001);
 				}
-			}cout << "helloooo" << "\n";
+			}
 		}
-		
-		/*
-		
-		for (int i=0; i<m; i++){
-			for(int j=0; j<n; j++){
-				readFPGA();
-				if(count == 0){
-					image[i][j].R = number;
-					count = 1;
-					
-					//cout << number << "\n";
-				}
-			}
-			for(int j=0; j<n; j++){
-				cout << "her";
-				readFPGA();
-				if(count == 1){	
-					image[i][j].G = number;
-					count = 2;
-					
-					//cout << number << "\n";
-				}
-			}
-			
-			for(int j=0; j<n; j++){
-				cout << count;
-				readFPGA();
-				if(count == 2){	
-					image[i][j].B = number;
-					count = 100;
-					cout << "den er erh";
-					//cout << number << "\n";
-				}
-			}
-		}*/
-		//number = a[7] << 7 | a[6] << 6 ;
-		//cout << number << "\n";
-		//usleep(0.5*mikrosekund);
-		break;
-	}
+		cout << "R: " << billede[2][2].R << "\n";
+		cout << "G: " << billede[2][2].G << "\n";
+		cout << "B: " << billede[2][2].B << "\n";
+		cout << "R: " << billede[200][200].R << "\n";
+		cout << "G: " << billede[200][200].G << "\n";
+		cout << "B: " << billede[200][200].B << "\n";
+		cout << "R: " << billede[400][400].R << "\n";
+		cout << "G: " << billede[400][400].G << "\n";
+		cout << "B: " << billede[400][400].B << "\n";
+	
+    const int width = 640;
+    const int height = 480;
 
-		cout << "R: " << image[2][2].R << "\n";
-		cout << "G: " << image[2][2].G << "\n";
-		cout << "B: " << image[2][2].B << "\n";
+    Image image(width, height);
+	/*
+    for (int y= 0; y < height; y++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+			image.SetColor(Color(billede[height][width].R,billede[height][width].G,billede[height][width].B), x, y);
+        }
+    }
+    * */
+    for (int y= 0; y < height; y++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+			image.SetColor(Color(rand() % 255 + 1,rand() % 255 + 1,rand() % 255 + 1), x, y);
+        }
+    }
+    image.Export("image10.bmp");
 
 }
+
+
+
 
 
 

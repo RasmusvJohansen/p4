@@ -158,9 +158,9 @@ void Image::Export(const char* path) const
         {
             for(int x = 0; x < m_width; x++)
             {
-                unsigned char r = static_cast<unsigned char>(GetColor(x,y).r * 255.0f);
-                unsigned char g = static_cast<unsigned char>(GetColor(x,y).g * 255.0f);
-                unsigned char b = static_cast<unsigned char>(GetColor(x,y).b * 255.0f);
+                unsigned char r = static_cast<unsigned char>(GetColor(x,y).r * 1); //255.0f);
+                unsigned char g = static_cast<unsigned char>(GetColor(x,y).g * 1); //255.0f);
+                unsigned char b = static_cast<unsigned char>(GetColor(x,y).b * 1); //255.0f);
 
                 unsigned char color[] = {b, g, r};
                 f.write(reinterpret_cast<char*>(color),3);

@@ -15,15 +15,9 @@ int main(){
     {
         for (int x = 0; x < width; x++)
         {
-            image.SetColor(Color((float)x / (float)width, 1.0f - ((float)x / (float)width), (float)y / (float)height), x, y);
+            image.SetColor(Color(5000, 255, 255), x, y);
         }
     }
-    image.Export("image.bmp");
+    image.Export("image4.bmp");
 }
-
-
-
-
-
-
 
