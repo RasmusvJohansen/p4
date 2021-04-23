@@ -25,17 +25,17 @@ pixel billede[m][n];
 void TESTreadFPGA(){
 	int count;
 	for (int i=0; i<m; i++){
-		for(int j=0; j<n; j++){
+		for(int j=0; j<n; j++){ 		
 			billede[i][j].R = count;
 			usleep(0.0001);
 			count++;
 		}
-		for(int j=0; j<n; j++){
+		for(int j=0; j<n; j++){			
 			billede[i][j].G = count;
 			usleep(0.0001);
 			count++;
 		}
-		for(int j=0; j<n; j++){
+		for(int j=0; j<n; j++){ 		
 			billede[i][j].B = count;
 			usleep(0.0001);
 			count++;
@@ -91,20 +91,20 @@ int main(){
 			for(int j=0; j<n;j++){
 				readFPGA();
 				//cout << number;
-				if(count == 0){
+				if(count == 0){ 		//Sætter hver tredje værdi ind, således at vi får R-værdieren, starter på plads 0
 					billede[i][j].R = number;
 					count = 1;
 					cout << billede[i][j].R;
 					//usleep(0.00001);
 				}
 				readFPGA();
-				if(count == 1){
+				if(count == 1){			//Sætter hver tredje værdi ind, således at vi får G-værdieren, starter på plads 1
 					billede[i][j].G = number;
 					count = 2;
 					//usleep(0.00001);
 				}
 				readFPGA();
-				if(count == 2){
+				if(count == 2){ 		//Sætter hver tredje værdi ind, således at vi får B-værdieren, starter på plads 2
 					billede[i][j].B = number;
 					count = 0;
 					//usleep(0.00001);
