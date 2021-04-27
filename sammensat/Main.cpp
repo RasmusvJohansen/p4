@@ -18,8 +18,11 @@ const int mikrosekund = 1000000;
 const int m = 640;
 const int n = 480;
 
-const int width = 640;
-const int height = 480;
+int countSort = 0;
+int countBrand = 0;
+
+String filepath = "test";
+
 
 
 
@@ -34,7 +37,6 @@ struct brand{
 };
 brand brandPixels[m][n];
 
-int countSort = 0;
 
 
 void fakeReadFPGA(){
@@ -49,8 +51,7 @@ void fakeReadFPGA(){
 			billede[i][j].B = rand() % 255 + 1;
 		}
 	}
-	cout << billede[200][200].B << "\n";
-	cout << "done\n";
+	cout << "FPGA læst\n";
 }
 
 void billedebehandling(){
@@ -64,6 +65,7 @@ void billedebehandling(){
 					//cout << "brand ved: " << i << ", " << j << "\n";
 					brandPixels[i][j].i = i;
 					brandPixels[i][j].j = j;
+					countBrand++;
 				}
 			}
 			if(i != brandPixels[i][j].i and j != brandPixels[i][j].j){
@@ -77,32 +79,35 @@ void billedebehandling(){
 	if(countSort > (n*m)*0.4){
 		cout << "Billedet kan ikke bruges\n";
 	}
+	cout << "Brand pixels: " << countBrand << "\n";
 }
 
 void lavBMP(){
-	Image image(width, height);
-	for (int i= 0; i < height; i++)
+	Image image(m, n);
+	for (int i= 0; i < m; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < n; j++)
         {
-			image.SetColor(Color(billede[i][j].R,billede[i][j].G,billede[i][j].B), j, i);
+			image.SetColor(Color(billede[i][j].R,billede[i][j].G,billede[i][j].B), i, j);
         }	
     }
-    image.Export("japaner/random.bmp");
+    image.Export("test/random.bmp");
 
 }
 
 void skalerKomprimer(){
 	Mat gemtBillede;
-    gemtBillede = imread("japaner/japaner.bmp",IMREAD_COLOR);
+    gemtBillede = imread("test/random.bmp",IMREAD_COLOR);
     //imshow("Originalt billede",gemtBillede);
     //waitKey(0);
     resize(gemtBillede,gemtBillede,Size(192,144));    
     //imshow("nedskaleret",gemtBillede);
     //waitKey(0);
     //imwrite("test/random.jpg",gemtBillede);
-    imwrite("japaner/skaleretRandom.jpg", gemtBillede, {IMWRITE_JPEG_QUALITY, 15});
-    imwrite("japaner/skalretRandom.bmp",gemtBillede);
+    imwrite("test/skaleretRandom.jpg", gemtBillede, {IMWRITE_JPEG_QUALITY, 15});
+    imwrite("test/skalretRandom.bmp",gemtBillede);
+    cout << "Skaleret gemt .bmp\n";
+    cout << "Komprimeret gemt .jpg\n";
     
 }
 
@@ -110,9 +115,8 @@ void skalerKomprimer(){
 
 
 int main(){
-
-	fakeReadFPGA();
 	std::chrono::steady_clock::time_point _start(std::chrono::steady_clock::now());
+	fakeReadFPGA();
 	lavBMP();
 	billedebehandling();
 	skalerKomprimer();

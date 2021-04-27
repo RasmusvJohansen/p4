@@ -169,6 +169,6 @@ void Image::Export(const char* path) const
         f.write(reinterpret_cast<char*>(bmpPad),paddingAmount);
     }
     f.close();
-    std::cout << "file created\n";
+    std::cout << "BMP fil oprettet\n";
 }
 
