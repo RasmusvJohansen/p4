@@ -9,28 +9,30 @@
 using namespace std;	
 #include <opencv2/opencv.hpp>
 
-/ test function that creates an image 
+// test function that creates an image 
     cv::Mat function() { 
        // create image 
-       cv::Mat ima(500,500,CV_8U,50); 
+       cv::Mat ima(500,500,CV_8U,100); 
        // return it 
        return ima; 
     } 
  
     int main() { 
+          
       // create a new image made of 240 rows and 320 columns 
       cv::Mat image1(240,320,CV_8U,100); 
-  
+      
       cv::imshow("Image", image1); // show the image 
+      
       cv::waitKey(0); // wait for a key pressed 
- 
+      
       // re-allocate a new image 
       image1.create(200,200,CV_8U); 
       image1= 200; 
  
       cv::imshow("Image", image1); // show the image 
       cv::waitKey(0); // wait for a key pressed 
- 
+      /*
       // create a red color image 
       // channel order is BGR 
       cv::Mat image2(240,320,CV_8UC3,cv::Scalar(0,0,255)); 
@@ -77,6 +79,6 @@ using namespace std;
  
       cv::imshow("Image", image2); // show the image 
       cv::waitKey(0); // wait for a key pressed 
- 
+ */
       return 0; 
     } 
