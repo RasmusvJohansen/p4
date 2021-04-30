@@ -14,6 +14,7 @@
 #include <fstream>
 using namespace std;
 #include <sstream>
+#include "decoder.h"
 
 int i;
 
@@ -67,11 +68,14 @@ ofstream myfile;
 				}
 		  }
 		if(is_GGA_received_completely==1){
-			//printf("GGA: %s",buff);
+			//printf("$GPGGA,%s",buff);
+			
 			stringstream ss;  
-			ss << buff;  
-			ss >> str;  
-			myfile.open("test.txt",ofstream::app);
+			ss << "$GPGGA,",buff;
+			ss >> str;
+			cout << str;
+			NMEA_decoder2("$GPGGA,",buff);
+			/*myfile.open("test.txt",ofstream::app);
 			  if (myfile.is_open())
 			  
 			  {
@@ -83,7 +87,7 @@ ofstream myfile;
 				myfile.close();
 				
 			  }
-			  else cout << "Unable to open file";
+			  else cout << "Unable to open file";*/
 			  
 			  
 			  

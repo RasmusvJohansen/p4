@@ -56,13 +56,23 @@ void NMEA_decoder2(string data){  // ny decoder. kan tage højde for komma tal
       k++; // k tæller antal sætning der er indeholdet    //i holder hvor mange char der er talt i alt. j bliver sat til 0 igen så den tæller hvor mange chars der imellem to kommaer
     }
   }
-  /*for ( int i = 0; i<=k ; i++){ // for loop der printer alt data indtil talte sætninger. 
+  for ( int i = 0; i<=k ; i++){ // for loop der printer alt data indtil talte sætninger. 
     cout << dataArray[i] << "\n"; 
-  }*/
+  }
+  cout << dataArray[2] << "\n";
+  float floatDataArray[14];
+  floatDataArray[0] = stof(dataArray[2].substr(0,2));
+  floatDataArray[1] = stof(dataArray[2].substr(2,8))/60;
+  floatDataArray[2] = stof(dataArray[2].substr(13,3));
+  floatDataArray[3] = stof(dataArray[2].substr(16,8))/60;
+  float lat = floatDataArray[0] + floatDataArray[1];
+  float lon = floatDataArray[2] + floatDataArray[3];
+  cout << lat << "\n";
+  cout << lon << "\n";
   //Serial.print("latitude: "); 
-  latt = dataArray[2]; // +dataArray[3]; // printer lattitude
+  //--latt = dataArray[2]; // +dataArray[3]; // printer lattitude
   //lattf = dataArray[2].toFloat();   // konverterer lattitude til float
-  lonn = dataArray[4]; //+dataArray[5]; //--//--
+  // --lonn = dataArray[4]; //+dataArray[5]; //--//--
   //lonnf = dataArray[3].toFloat();   //--//--
   height = dataArray[9]+dataArray[10]; //--//--
   //heightf = dataArray[9].toFloat();    //--//--
@@ -130,7 +140,7 @@ int main ()
 {
 	
 		// put your main code here, to run repeatedly:
-		gpsDATA =  "$GPGGA,104940.00,5700.84436,N,00959.13150,E,1,09,1.11,29.8,M,42.4,M,,*61";//skal læses fra pi promt
+		gpsDATA =  "$GPGGA,00,5700.84563,N,00959.09424,E,1,11,1.02,54.2,M,42.4,M,,*6F";//skal læses fra pi promt
 		//Serial.println(gpsDATA);
 		//NMEA_decoder(gpsDATA);
 		NMEA_decoder2(gpsDATA);
