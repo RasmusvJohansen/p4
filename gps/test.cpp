@@ -49,7 +49,8 @@ ofstream myfile;
 				GGA_index = 0;
 			}
 			else if(IsitGGAstring ==1){
-				buff[GGA_index++] = dat;
+				cout << dat;
+				//buff[GGA_index++] = dat;
 				if(dat=='\r')
 					is_GGA_received_completely = 1;
 				}
@@ -66,11 +67,11 @@ ofstream myfile;
 				}
 		  }
 		if(is_GGA_received_completely==1){
-			printf("GGA: %s",buff);
+			//printf("GGA: %s",buff);
 			stringstream ss;  
 			ss << buff;  
 			ss >> str;  
-			myfile.open("data.txt",ofstream::app);
+			myfile.open("test.txt",ofstream::app);
 			  if (myfile.is_open())
 			  
 			  {
