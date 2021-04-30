@@ -4,6 +4,10 @@
 #define IMAGE_H
 
 
+
+
+
+
 struct Color {
     float r, g, b;
     Color();
