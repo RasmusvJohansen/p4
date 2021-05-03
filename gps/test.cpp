@@ -14,6 +14,7 @@
 #include <fstream>
 using namespace std;
 #include <sstream>
+#include <iomanip>
 //#include "decoder.h"
 
 int i;
@@ -25,9 +26,9 @@ string lonn;
 string lo;
 string height;
 bool pData = false;
-float lattf;
-float lonnf;
-float heightf;
+double lattf;
+double lonnf;
+double heightf;
 
 
 void NMEA_decoder2(string data){  // ny decoder. kan tage højde for komma tal
@@ -57,15 +58,16 @@ void NMEA_decoder2(string data){  // ny decoder. kan tage højde for komma tal
   for(int i;i<15;i++){
   //cout << dataArray[i] << "   her\n";
   }
-  float floatDataArray[14];
-  //floatDataArray[0] = stof(dataArray[2].substr(0,2));
-  //floatDataArray[1] = stof(dataArray[2].substr(2,8))/60;
-  //floatDataArray[2] = stof(dataArray[2].substr(13,3));
-  //floatDataArray[3] = stof(dataArray[2].substr(16,8))/60;
-  float lat = floatDataArray[0] + floatDataArray[1];
-  float lon = floatDataArray[2] + floatDataArray[3];
-  cout << lat << "\n";
-  cout << lon << "\n";
+  double floatDataArray[14];
+  floatDataArray[0] = stod(dataArray[2].substr(0,2));
+  floatDataArray[1] = stod(dataArray[2].substr(2,8))/60.0;
+  floatDataArray[2] = stod(dataArray[2].substr(13,3));
+  floatDataArray[3] = stod(dataArray[2].substr(16,8))/60.0;
+  
+  double lat = floatDataArray[0] + floatDataArray[1];
+  double lon = floatDataArray[2] + floatDataArray[3];
+  cout << setprecision(9) << lat << "\n";
+  cout << setprecision(9) << lon << "\n";
   height = dataArray[9]+dataArray[10]; //--//--
   pData = true; // boolean der sørger for overstående data kun bliver printet én gang i void loop
  }
@@ -128,24 +130,20 @@ int l = 0;
 		if(is_GGA_received_completely==1){
 			//printf("$GPGGA,%s",buff);
 			l = 0;	
+			ss.str("");
+			ss.clear();
 			for(int i = 0; i<67; i++){
 				//cout << testArray[i];
 				ss << testArray[i];
 				//ss >> str;
 			}
 			string test;
-			
-			string strr(ss.str());
-			//strr = "$GPGGA,"+strr;
-			string test2;
-			test2 = "$GPGGA,";
-			string test3;
-			test3 = test2 += strr;
-			cout << test3;
-			
+			string strr("$GPGGA,"+ss.str());
+			cout << strr;
+			NMEA_decoder2(strr);
 
 			//cout << "\n" << str << "også her\n";
-			//NMEA_decoder2(str);
+			
 			/*myfile.open("test.txt",ofstream::app);
 			  if (myfile.is_open())
 			  
