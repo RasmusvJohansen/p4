@@ -80,7 +80,7 @@ stringstream ss;
 			}
 			string test;
 			string strr("$GPGGA,"+ss.str());
-			cout << strr;
+			//cout << strr;
 			NMEA_decoder2(strr);
 
 			//cout << "\n" << str << "også her\n";

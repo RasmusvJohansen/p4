@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <wiringPi.h>
 #include <wiringSerial.h>
+#include <iomanip>
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,7 @@ string latt;
 string la;
 string lonn;
 string lo;
-string height;
+string Height;
 bool pData = false;
 double lattf;
 double lonnf;
@@ -48,7 +49,7 @@ void NMEA_decoder2(string data){  // ny decoder. kan tage højde for komma tal
   cout << "\n" << setprecision(9) << lat << "\n";
   cout << setprecision(9) << lon << "\n";
   cout << dataArray[9].substr(0,4) << "\n";
-  height = dataArray[9]+dataArray[10]; //--//--
+  Height = dataArray[9]+dataArray[10]; //--//--
   
   pData = true; // boolean der sørger for overstående data kun bliver printet én gang i void loop
  }
