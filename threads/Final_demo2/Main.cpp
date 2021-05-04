@@ -93,7 +93,7 @@ void lavBMP(){
         }	
     }
     
-    randomName = "/home/pi/Desktop/Storage/random" + to_string(billedeCounter) + ".bmp";
+    randomName = "/home/pi/Desktop/Storage/0RAW/random" + to_string(billedeCounter) + ".bmp";
     c = const_cast<char*>(randomName.c_str());
     
     
@@ -138,8 +138,8 @@ void skalerKomprimer(){
     //waitKey(0);
     //imwrite("test/random.jpg",gemtBillede);
     
-    skaleretName = "Skaleret" + to_string(billedeCounter) + ".bmp";
-    jpgName = "Skaleret" + to_string(billedeCounter) + ".jpg";
+    skaleretName = "/home/pi/Desktop/Storage/1Skaleret/Skaleret" + to_string(billedeCounter) + ".bmp";
+    jpgName = "/home/pi/Desktop/Storage/2Komprimeret/Komprimeret" + to_string(billedeCounter) + ".jpg";
     
     imwrite(jpgName, gemtBillede, {IMWRITE_JPEG_QUALITY, 15});
     imwrite(skaleretName,gemtBillede);
