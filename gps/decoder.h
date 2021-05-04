@@ -47,27 +47,9 @@ void NMEA_decoder2(string data){  // ny decoder. kan tage højde for komma tal
   
   cout << "\n" << setprecision(9) << lat << "\n";
   cout << setprecision(9) << lon << "\n";
+  cout << dataArray[9].substr(0,4) << "\n";
   height = dataArray[9]+dataArray[10]; //--//--
   
   pData = true; // boolean der sørger for overstående data kun bliver printet én gang i void loop
  }
 }
-
-
-/*
-int main ()
-{
-		gpsDATA =  "$GPGGA,104940.00,5700.84436,N,00959.13150,E,1,09,1.11,29.8,M,42.4,M,,*61";//skal læses fra pi promt
-		//Serial.println(gpsDATA);
-		//NMEA_decoder(gpsDATA);
-		NMEA_decoder2(gpsDATA);
-  
-	if ( pData == true){
-	  cout << latt << "\n";
-	  cout << lonn << "\n";
-	  cout << height << "\n";
-	  pData = false;
-	} 
-
-
-}*/
