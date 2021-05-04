@@ -4,6 +4,7 @@
 
 #include "GPS_lib.h"
 #include "Image.h"
+#include <filesystem>
 //#include "Image.cpp"
 
 
@@ -39,7 +40,8 @@ const int height = 480;
 Image image(width, height);
 pthread_t tid[2];
 int counter;
-pthread_mutex_t lockz;
+pthread_mutex_t bLock;
+pthread_mutex_t gLock;
 int i = 0;
 int s = 0;
 int picNumber = 0;
@@ -48,6 +50,7 @@ string randomName;
 string skaleretName;
 string jpgName;
 char* c;
+int countSort = 0;
 
 
 //Struct til at gemme RGB data for hver pixel
@@ -61,7 +64,7 @@ struct brand{
 };
 brand brandPixels[m][n];
 
-int countSort = 0;
+
 
 void fakeReadFPGA () {
 		for (int i=0; i<m; i++){
@@ -90,7 +93,7 @@ void lavBMP(){
         }	
     }
     
-    randomName = "random" + to_string(billedeCounter) + ".bmp";
+    randomName = "/home/pi/Desktop/Storage/random" + to_string(billedeCounter) + ".bmp";
     c = const_cast<char*>(randomName.c_str());
     
     
@@ -145,58 +148,64 @@ void skalerKomprimer(){
 }
 
 
-void* trythis(void* arg) {
+void* T1 (void* arg) {
 	
-	while(1) {
-	pthread_mutex_lock(&lockz);
+	for(int i = 0; i < 3; i++) {
+	pthread_mutex_lock(&bLock);
 	
 
-	counter = 1;
 	printf("\n Billede program startet \n");
+	
 
 	fakeReadFPGA();
 	lavBMP();
 	billedebehandling();
 	skalerKomprimer();
+	// put billede i queue
+
 	
-	
-	counter = 1;
 	printf("\n Billede program sluttet \n");
 	
-	pthread_mutex_unlock(&lockz);
+	pthread_mutex_unlock(&bLock);
 
 }
-
 	return NULL; 
 }
 
-void* testCounter(void* count) {
-	
-	pthread_mutex_lock(&lockz);
-	
-
-	counter = 2;
-	printf("\n Job 2 starter \n");
-
-
-
-	for (i = 0; i < 10; i++) {
-	s += 1;
-	cout << s << "\n"; 
-
-	sleep(1);
-	};
-	
-	
-	
-	
-	counter = 2;
-	printf("\n Job 2 slutter \n");
-	
-	pthread_mutex_unlock(&lockz);
-
+void* T2 (void* arg) {
+	while(1) {
+		pthread_mutex_lock(&gLock);
+		
+		//Læs GPS data
+		//Put GPS data i queue
+		
+		pthread_mutex_unlock(&gLock);
+		
+		
+		
+	}
 	return NULL;
 }
+
+
+void* T3(void* arg){
+	while(1){
+		//pthread_mutex_lock(&A_sig);
+		//pthread_mutex_lock(&B_sig);
+		
+		//åben billede fra billede queue
+		//åben gps fra gps queue
+		//kombiner billede fra GPS og billede Q.
+		
+		//pthread_mutex_unlock(&block);
+		//pthread_mutex_unlock(&T2_sig);
+		
+		
+		//send billede. 
+		
+	
+}}
+
 
 
 void almFunc() {;
@@ -211,10 +220,10 @@ int main () {
     pthread_t newthread, newthread2;
     printf("Program starter \n");
     
-    pthread_create(&newthread2, NULL, trythis, NULL);    
+    pthread_create(&newthread, NULL, T1, NULL);    
     //pthread_create(&newthread, NULL, TestFuncGPS, NULL);
     //almFunc();
-    pthread_join(newthread2, NULL);
+    pthread_join(newthread, NULL);
     //pthread_join(newthread, NULL);
 
     
