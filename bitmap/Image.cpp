@@ -116,7 +116,7 @@ void Image::Export(const char* path) const
     informationHeader[13] = 0;
     
     // Bits per pixel (RGB)
-    informationHeader[14] = 24;
+    informationHeader[14] = 24; //Skal ændres hvis kamera ikke kører 888
     informationHeader[15] = 0;
 
     //Compression (no compression)

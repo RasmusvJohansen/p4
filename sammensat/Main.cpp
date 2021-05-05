@@ -104,6 +104,8 @@ void skalerKomprimer(){
     //imshow("nedskaleret",gemtBillede);
     //waitKey(0);
     //imwrite("test/random.jpg",gemtBillede);
+    putText(gemtBillede,"57.01176883,9.983356667", Point(10,10),
+	FONT_HERSHEY_PLAIN,0.7,Scalar(225,255,250),0.1,CV_AVX);
     imwrite("test/skaleretRandom.jpg", gemtBillede, {IMWRITE_JPEG_QUALITY, 15});
     imwrite("test/skalretRandom.bmp",gemtBillede);
     cout << "Skaleret gemt .bmp\n";
