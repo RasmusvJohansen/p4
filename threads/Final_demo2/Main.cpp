@@ -66,13 +66,13 @@ pthread_mutex_t gLock;
 int i = 0;
 int s = 0;
 int picNumber = 0;
-
+int billedeCounter = 0;
 string randomName;
 string skaleretName;
 string jpgName;
 char* c;
 int countSort = 0;
-
+bool aktiv = false;
 
 
 //Struct til at gemme RGB data for hver pixel
@@ -170,8 +170,9 @@ void skalerKomprimer(){
 }
 
 void* T1 (void* arg) {
-	while(1) {
+	//while(1) {
 	//for(int i = 0; i < 10; i++) {
+	
 	pthread_mutex_lock(&gLock);
 	
 
@@ -186,16 +187,16 @@ void* T1 (void* arg) {
 
 	
 	printf("\n Billede program sluttet \n");
-	sleep(2.5);
+	//sleep(2.5);
 	
 	pthread_mutex_unlock(&gLock);
 
-}
+//}
 	return NULL; 
 }
 
 void* T2 (void* arg) {
-	while(1) {
+	//while(1) {
 		
 		//for(int i = 0; i < 10; i++) {
 		pthread_mutex_lock(&bLock);
@@ -206,14 +207,14 @@ void* T2 (void* arg) {
 		pthread_mutex_unlock(&bLock);
 		cout << i << endl; 
 
-	}
+	//}
 	pthread_exit(NULL);
 	//}
 	return NULL;
 }
 
-
 void* T3(void* arg){
+
 	while(1){
 		//pthread_mutex_lock(&A_sig);
 		//pthread_mutex_lock(&B_sig);
@@ -231,6 +232,17 @@ void* T3(void* arg){
 	
 }}
 
+void* FAILSAFE (void* arg) {
+	for(int i = 0; i < 5; i++) {
+		
+		sleep(1);
+		i++;
+		cout << i <<endl;
+	}
+	aktiv = true;
+	
+	return NULL;
+}
 
 
 void almFunc() {;
@@ -243,19 +255,21 @@ printf("Program starter på ny \n");
 
 int main () {
 	
-    pthread_t newthread, newthread2;
+	while(aktiv == false) {
+    pthread_t newthread, newthread2, FAILSAFECounter;
     printf("Program starter \n");
     
+    pthread_create(&FAILSAFECounter, NULL, FAILSAFE, NULL);
     
     pthread_create(&newthread, NULL, T1, NULL);    
-    pthread_create(&newthread2, NULL, T2, NULL);
+    //pthread_create(&newthread2, NULL, T2, NULL);
     pthread_join(newthread, NULL);
-    pthread_join(newthread2, NULL);
+    //pthread_join(newthread2, NULL);
     
 
     printf("Program slutter \n");
 	
-    
+    }
     
 
 }

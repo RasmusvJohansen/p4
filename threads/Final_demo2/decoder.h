@@ -23,7 +23,7 @@ double heightf;
 int x = 0;
 double lat;
 double lon;
-int billedeCounter = 0;
+int GPSCounter = 0;
 
 
 
@@ -143,10 +143,10 @@ stringstream ss;
 			cout << "Lat: " << setprecision(9) << lat << endl;
 			cout << "Lon: " << setprecision(9) << lon  << endl;
 			cout << "Højde: "<< Height << endl;
-			cout << billedeCounter << endl;
+			cout << GPSCounter << endl;
 			
 			
-			myfile.open("/home/pi/Desktop/Storage/3GPSData/GPSData.txt",ofstream::trunc);
+			myfile.open("/home/pi/Desktop/Storage/3GPSData/GPSData"+to_string(GPSCounter) +".txt",ofstream::trunc);
 			  if (myfile.is_open())
 			  
 			  {
@@ -161,6 +161,7 @@ stringstream ss;
 				//GotoLine(myfile, 8);
 				myfile.close();
 				cout << "GPS gemt" <<endl;
+				GPSCounter ++;
 				
 			  }
 			  else cout << "Unable to open file";
