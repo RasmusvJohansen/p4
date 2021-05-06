@@ -66,7 +66,7 @@ pthread_mutex_t gLock;
 int i = 0;
 int s = 0;
 int picNumber = 0;
-int billedeCounter = 0;
+
 string randomName;
 string skaleretName;
 string jpgName;
@@ -170,8 +170,8 @@ void skalerKomprimer(){
 }
 
 void* T1 (void* arg) {
-	
-	for(int i = 0; i < 1; i++) {
+	while(1) {
+	//for(int i = 0; i < 10; i++) {
 	pthread_mutex_lock(&gLock);
 	
 
@@ -196,16 +196,19 @@ void* T1 (void* arg) {
 
 void* T2 (void* arg) {
 	while(1) {
+		
+		//for(int i = 0; i < 10; i++) {
 		pthread_mutex_lock(&bLock);
 		
 		laesGPS();
 		//Put GPS data i queue
 		
 		pthread_mutex_unlock(&bLock);
+		cout << i << endl; 
 
-		pthread_exit(NULL);
-		
 	}
+	pthread_exit(NULL);
+	//}
 	return NULL;
 }
 

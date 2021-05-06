@@ -23,6 +23,7 @@ double heightf;
 int x = 0;
 double lat;
 double lon;
+int billedeCounter = 0;
 
 
 
@@ -69,7 +70,9 @@ void NMEA_decoder2(string data){  // ny decoder. kan tage højde for komma tal
 
 
 
+
 void laesGPS(){
+  x = 0;
   int serial_port; 
   char dat,buff[100],GGA_code[3];
   unsigned char IsitGGAstring=0;
@@ -140,6 +143,7 @@ stringstream ss;
 			cout << "Lat: " << setprecision(9) << lat << endl;
 			cout << "Lon: " << setprecision(9) << lon  << endl;
 			cout << "Højde: "<< Height << endl;
+			cout << billedeCounter << endl;
 			
 			
 			myfile.open("/home/pi/Desktop/Storage/3GPSData/GPSData.txt",ofstream::trunc);
