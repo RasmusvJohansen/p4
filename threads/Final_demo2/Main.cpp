@@ -72,7 +72,8 @@ string skaleretName;
 string jpgName;
 char* c;
 int countSort = 0;
-int x=0;
+
+
 
 //Struct til at gemme RGB data for hver pixel
 struct pixel{
@@ -168,116 +169,14 @@ void skalerKomprimer(){
     
 }
 
-
-
-
-void laesGPS(){
-  int serial_port; 
-  char dat,buff[100],GGA_code[3];
-  unsigned char IsitGGAstring=0;
-  unsigned char GGA_index=0;
-  unsigned char is_GGA_received_completely = 0;
-  
-  if ((serial_port = serialOpen ("/dev/ttyS0", 9600)) < 0)		/* open serial port */
-  {
-    fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
-    //return 1 ;
-  }
-
-  if (wiringPiSetup () == -1)							/* initializes wiringPi setup */
-  {
-    fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
-    //return 1 ;
-  }
-string str;
-ofstream myfile;
-string gpsArray[67];
-stringstream ss;
-	int l = 0;
-  while(x < 10){
-  
-		if(serialDataAvail (serial_port) )		/* check for any data available on serial port */
-		  { 
-			dat = serialGetchar(serial_port);		/* receive character serially */		
-			if(dat == '$'){
-				IsitGGAstring = 0;
-				GGA_index = 0;
-			}
-			else if(IsitGGAstring ==1){
-				//cout << dat;
-				gpsArray[l] = dat;
-				l++;
-				//buff[GGA_index++] = dat;
-				if(dat=='\r')
-					is_GGA_received_completely = 1;
-				}
-			else if(GGA_code[0]=='G' && GGA_code[1]=='G' && GGA_code[2]=='A'){
-				IsitGGAstring = 1;
-				GGA_code[0]= 0; 
-				GGA_code[0]= 0;
-				GGA_code[0]= 0;		
-				}
-			else{
-				GGA_code[0] = GGA_code[1];
-				GGA_code[1] = GGA_code[2];
-				GGA_code[2] = dat;
-				}
-			
-		  }
-		if(is_GGA_received_completely==1){
-			//printf("$GPGGA,%s",buff);
-			l = 0;	//array resettes
-			ss.str("");
-			ss.clear();
-			for(int i = 0; i<67; i++){ //laver datarray om til en string, så den kan  bruges i decoderen.
-				ss << gpsArray[i];
-			}
-			string test;
-			string strr("$GPGGA,"+ss.str());
-			//cout << strr;
-			
-			NMEA_decoder2(strr);
-
-			//cout << "\n" << str << "også her\n";
-			
-			/*myfile.open("test.txt",ofstream::app);
-			  if (myfile.is_open())
-			  
-			  {
-				//istream fileData("data.txt", ifstream::binary);
-				myfile.seekp (0,ios_base::end);  
-				
-				myfile << "GGA: %s" << str << "\n";
-				//GotoLine(myfile, 8);
-				myfile.close();
-				
-			  }
-			  else cout << "Unable to open file";*/
-			  
-			  
-			  
-			is_GGA_received_completely = 0;
-			x++;
-			
-			
-				
-		}
-	}
-
-}
-
-
-
-
-
 void* T1 (void* arg) {
 	
-	for(int i = 0; i < 10; i++) {
-	pthread_mutex_lock(&bLock);
+	for(int i = 0; i < 1; i++) {
+	pthread_mutex_lock(&gLock);
 	
 
 	printf("\n Billede program startet \n");
-	
+
 
 	fakeReadFPGA();
 	lavBMP();
@@ -287,8 +186,9 @@ void* T1 (void* arg) {
 
 	
 	printf("\n Billede program sluttet \n");
+	sleep(2.5);
 	
-	pthread_mutex_unlock(&bLock);
+	pthread_mutex_unlock(&gLock);
 
 }
 	return NULL; 
@@ -296,12 +196,12 @@ void* T1 (void* arg) {
 
 void* T2 (void* arg) {
 	while(1) {
-		pthread_mutex_lock(&gLock);
+		pthread_mutex_lock(&bLock);
 		
 		laesGPS();
 		//Put GPS data i queue
 		
-		pthread_mutex_unlock(&gLock);
+		pthread_mutex_unlock(&bLock);
 
 		pthread_exit(NULL);
 		

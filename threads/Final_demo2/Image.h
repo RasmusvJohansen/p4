@@ -8,7 +8,6 @@
 
 
 
-
 struct Color {
     float r, g, b;
     Color();
