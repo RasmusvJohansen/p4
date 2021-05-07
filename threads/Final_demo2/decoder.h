@@ -143,7 +143,7 @@ stringstream ss;
 			cout << "Lat: " << setprecision(9) << lat << endl;
 			cout << "Lon: " << setprecision(9) << lon  << endl;
 			cout << "Højde: "<< Height << endl;
-			cout << GPSCounter << endl;
+			//cout << GPSCounter << endl;
 			
 			
 			myfile.open("/home/pi/Desktop/Storage/3GPSData/GPSData"+to_string(GPSCounter) +".txt",ofstream::trunc);

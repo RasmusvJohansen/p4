@@ -31,6 +31,7 @@
 #include <fstream>
 
 
+
 #include <stdio.h>
 #include <string.h>
 #include <cstring>
@@ -40,7 +41,6 @@
 #include <iostream>
 #include <fstream>
 #include <fstream>
-using namespace std;
 #include <sstream>
 #include <iomanip>
 
@@ -49,6 +49,7 @@ using namespace std;
  
 using namespace cv;
 using namespace std;
+
 
 const int mikrosekund = 1000000;
 //Billede størrelse
@@ -72,7 +73,8 @@ string skaleretName;
 string jpgName;
 char* c;
 int countSort = 0;
-bool aktiv = false;
+bool storage = true;
+
 
 
 //Struct til at gemme RGB data for hver pixel
@@ -88,6 +90,9 @@ brand brandPixels[m][n];
 
 
 
+
+
+
 void fakeReadFPGA () {
 		for (int i=0; i<m; i++){
 		for(int j=0; j<n; j++){
@@ -100,8 +105,8 @@ void fakeReadFPGA () {
 			billede[i][j].B = rand() % 255 + 1;
 		}
 	}
-	cout << billede[200][200].B << "\n";
-	cout << "done\n";
+	//cout << billede[200][200].B << "\n";
+	cout << "FPGA læst \n";
 	
 }
 
@@ -169,8 +174,8 @@ void skalerKomprimer(){
     
 }
 
-void* T1 (void* arg) {
-	//while(1) {
+void* T1 (void* arg) { //Thread til billede delen
+	while(storage == true) {
 	//for(int i = 0; i < 10; i++) {
 	
 	pthread_mutex_lock(&gLock);
@@ -187,44 +192,47 @@ void* T1 (void* arg) {
 
 	
 	printf("\n Billede program sluttet \n");
+	cout << storage << "\n";
 	//sleep(2.5);
 	
 	pthread_mutex_unlock(&gLock);
 
-//}
+
+}
 	return NULL; 
 }
 
-void* T2 (void* arg) {
-	//while(1) {
+void* T2 (void* arg) { //Thread til GPS delen
+	while(1) {
 		
-		//for(int i = 0; i < 10; i++) {
 		pthread_mutex_lock(&bLock);
 		
 		laesGPS();
 		//Put GPS data i queue
 		
 		pthread_mutex_unlock(&bLock);
-		cout << i << endl; 
+		
 
-	//}
+	}
 	pthread_exit(NULL);
-	//}
 	return NULL;
 }
 
-void* T3(void* arg){
-
+void* T3(void* arg){ //Thread til sende delen
+	
 	while(1){
-		//pthread_mutex_lock(&A_sig);
-		//pthread_mutex_lock(&B_sig);
+		pthread_mutex_lock(&gLock);
+		pthread_mutex_lock(&bLock);
+		
+		printf("Sover i 5 \n");
+		sleep(5);
 		
 		//åben billede fra billede queue
 		//åben gps fra gps queue
 		//kombiner billede fra GPS og billede Q.
 		
-		//pthread_mutex_unlock(&block);
-		//pthread_mutex_unlock(&T2_sig);
+		pthread_mutex_unlock(&gLock);
+		pthread_mutex_unlock(&bLock);
 		
 		
 		//send billede. 
@@ -232,44 +240,35 @@ void* T3(void* arg){
 	
 }}
 
-void* FAILSAFE (void* arg) {
-	for(int i = 0; i < 5; i++) {
-		
+void* T4(void* arg) { //Threda til failsafe med mængden af billeder
+	for(int i; i < 10; i++) {
 		sleep(1);
-		i++;
-		cout << i <<endl;
+		cout << "FAILSAFE VÆRDI: " << i << "\n ";
+		
+		
 	}
-	aktiv = true;
-	
+	storage = false;
 	return NULL;
 }
 
 
-void almFunc() {;
-    for(int g = 0; g < 10; g++) { //Bestemmer antallet af gange programmet kører
-sleep(1);
-printf("Program starter på ny \n");
-
-    }}
-
-
 int main () {
 	
-	while(aktiv == false) {
-    pthread_t newthread, newthread2, FAILSAFECounter;
+    pthread_t newthread, newthread2, newthread3, newthread4;
     printf("Program starter \n");
     
-    pthread_create(&FAILSAFECounter, NULL, FAILSAFE, NULL);
     
     pthread_create(&newthread, NULL, T1, NULL);    
-    //pthread_create(&newthread2, NULL, T2, NULL);
+    pthread_create(&newthread2, NULL, T2, NULL);
+    //pthread_create(&newthread3, NULL, T3, NULL);
+    pthread_create(&newthread4, NULL, T4, NULL);
     pthread_join(newthread, NULL);
-    //pthread_join(newthread2, NULL);
+    pthread_join(newthread2, NULL);
+    //pthread_join(newthread3, NULL);
+    pthread_join(newthread4, NULL);
+    
     
 
     printf("Program slutter \n");
-	
-    }
-    
-
+    sleep(5);
 }
