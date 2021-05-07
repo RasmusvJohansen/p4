@@ -15,8 +15,8 @@ using namespace cv;
 
 const int mikrosekund = 1000000;
 //Billede størrelse
-const int m = 100;
-const int n = 100;
+const int m = 640;
+const int n = 480;
 
 int countSort = 0;
 int countBrand = 0;
@@ -63,8 +63,21 @@ void fakeReadFPGA(){
 #define pin24 24
 #define pin25 25
 
+#define PCLK 8
+#define rpi 7
+
 unsigned int number = 0b00000000;
 int a[7];
+
+void read(){
+	digitalWrite(PCLK,0);
+	digitalWrite(rpi,1);
+}
+
+void doneRead(){
+	digitalWrite(PCLK, 1);	
+}
+
 
 int readFPGA(){
 	wiringPiSetupGpio();
@@ -76,7 +89,10 @@ int readFPGA(){
 	pinMode(pin23, INPUT);
 	pinMode(pin24, INPUT);
 	pinMode(pin25, INPUT);
-	//delay(20);
+	pinMode(PCLK, OUTPUT);
+	pinMode(rpi, OUTPUT);
+	//delay(0.2);
+	read();
 	a[0] = digitalRead(pin2);
 	a[1] = digitalRead(pin3);
 	a[2] = digitalRead(pin17);
@@ -91,6 +107,7 @@ int readFPGA(){
 		number += a[i] << i;
 	}
 	cout << number << "\n";
+	doneRead();
 	return number;
 	
 }

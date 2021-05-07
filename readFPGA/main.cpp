@@ -11,8 +11,31 @@ using namespace std;
 #define pin23 23
 #define pin24 24
 #define pin25 25
+
+
+#define PCLK 8
+#define rpi 7
+
 unsigned int number = 0b00000000;
 int a[7];
+
+
+
+void read(){
+	digitalWrite(PCLK,0);
+	digitalWrite(rpi,1);
+}
+
+void doneRead(){
+	digitalWrite(PCLK, 1);	
+}
+
+
+
+
+
+
+
 int main(void)
 {
 	wiringPiSetupGpio();
@@ -24,6 +47,8 @@ int main(void)
 	pinMode(pin23, INPUT);
 	pinMode(pin24, INPUT);
 	pinMode(pin25, INPUT);
+	pinMode(PCLK, OUTPUT);
+	pinMode(rpi, OUTPUT);
 	
 	cout << "Start";
 	for (;;){
@@ -36,6 +61,7 @@ int main(void)
 		cout << "gpio 24: " << digitalRead(pin24) << "\n";
 		cout << "gpio 25: " << digitalRead(pin25) << "\n";*/
 		delay(20);
+		read();
 		a[0] = digitalRead(pin2);
 		a[1] = digitalRead(pin3);
 		a[2] = digitalRead(pin17);
@@ -44,12 +70,14 @@ int main(void)
 		a[5] = digitalRead(pin23);
 		a[6] = digitalRead(pin24);
 		a[7] = digitalRead(pin25);
+		
 		//cout << a[0];
 		number = 0b00000000;
 		for (int i=0; i<8; i++){
 			number += a[i] << i;
 		}
 		cout << number << "\n";
+		doneRead();
 	}
 	return 0;
 }
