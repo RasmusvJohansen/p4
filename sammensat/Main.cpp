@@ -15,8 +15,8 @@ using namespace cv;
 
 const int mikrosekund = 1000000;
 //Billede størrelse
-const int m = 640;
-const int n = 480;
+const int m = 100;
+const int n = 100;
 
 int countSort = 0;
 int countBrand = 0;
@@ -53,6 +53,66 @@ void fakeReadFPGA(){
 	}
 	cout << "FPGA læst\n";
 }
+
+#define pin2 2
+#define pin3 3
+#define pin17 17
+#define pin27 27
+#define pin22 22
+#define pin23 23
+#define pin24 24
+#define pin25 25
+
+unsigned int number = 0b00000000;
+int a[7];
+
+int readFPGA(){
+	wiringPiSetupGpio();
+	pinMode(pin2, OUTPUT);
+	pinMode(pin3, OUTPUT);
+	pinMode(pin17, INPUT);
+	pinMode(pin27, INPUT);
+	pinMode(pin22, INPUT);
+	pinMode(pin23, INPUT);
+	pinMode(pin24, INPUT);
+	pinMode(pin25, INPUT);
+	//delay(20);
+	a[0] = digitalRead(pin2);
+	a[1] = digitalRead(pin3);
+	a[2] = digitalRead(pin17);
+	a[3] = digitalRead(pin27);
+	a[4] = digitalRead(pin22);
+	a[5] = digitalRead(pin23);
+	a[6] = digitalRead(pin24);
+	a[7] = digitalRead(pin25);
+	//cout << a[0];
+	number = 0b00000000;
+	for (int i=0; i<8; i++){
+		number += a[i] << i;
+	}
+	cout << number << "\n";
+	return number;
+	
+}
+
+void addToArray(){
+	for (int i=0; i<m; i++){
+		for(int j=0; j<n; j++){
+			readFPGA();
+			billede[i][j].R = number;
+		}
+		for(int j=0; j<n; j++){
+			readFPGA();
+			billede[i][j].G = number;
+		}
+		for(int j=0; j<n; j++){
+			readFPGA();
+			billede[i][j].B = number;
+		}
+	}
+}
+
+
 
 void billedebehandling(){
 	for (int i=0; i<m; i++){
@@ -118,7 +178,8 @@ void skalerKomprimer(){
 
 int main(){
 	std::chrono::steady_clock::time_point _start(std::chrono::steady_clock::now());
-	fakeReadFPGA();
+	//fakeReadFPGA();
+	addToArray();
 	lavBMP();
 	billedebehandling();
 	skalerKomprimer();
