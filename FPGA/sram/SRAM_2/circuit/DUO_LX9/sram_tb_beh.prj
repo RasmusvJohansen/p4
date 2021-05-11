@@ -1,0 +1,2 @@
+vhdl work "../sram_ctrl.vhd"
+vhdl work "../sram_tb.vhd"

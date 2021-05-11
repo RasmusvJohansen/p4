@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\jakob\OneDrive\Documents\DesignLab\sram_pi_addr_11_05\circuit\exram.vhd" Line 45: Assignment to <arg fmt="%s" index="1">sclk</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="92" delta="old" >"C:\Users\jakob\OneDrive\Documents\DesignLab\sram_pi_addr_11_05\circuit\topmodul.vhd" Line 115: <arg fmt="%s" index="1">clk</arg> should be on the sensitivity list of the process
+</msg>
+
+<msg type="error" file="HDLCompiler" num="609" delta="new" >"C:\Users\jakob\OneDrive\Documents\DesignLab\sram_pi_addr_11_05\circuit\topmodul.vhd" Line 116: Multiple signals in event expression is not synthesizable
+</msg>
+
+</messages>
+

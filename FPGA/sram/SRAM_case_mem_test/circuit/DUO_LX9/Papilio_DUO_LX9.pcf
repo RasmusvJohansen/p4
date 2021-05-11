@@ -1,0 +1,12 @@
+//! **************************************************************************
+// Written by: Map P.68d on Mon May 03 09:36:21 2021
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "P144";
+PROHIBIT = SITE "P69";
+PROHIBIT = SITE "P60";
+COMP "DUO_SW1" LOCATE = SITE "P104" LEVEL 1;
+COMP "ARD_RESET" LOCATE = SITE "P139" LEVEL 1;
+SCHEMATIC END;
+

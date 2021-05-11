@@ -1,0 +1,8 @@
+Release 14.6 Drc P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Wed Apr 28 10:49:40 2021
+
+drc -z sram_ctrl.ncd sram_ctrl.pcf
+
+DRC detected 0 errors and 0 warnings.

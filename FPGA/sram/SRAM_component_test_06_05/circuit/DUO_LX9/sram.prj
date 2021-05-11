@@ -1,0 +1,2 @@
+vhdl work "../exram.vhd"
+vhdl work "../sram.vhd"

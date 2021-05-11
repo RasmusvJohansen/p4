@@ -1,0 +1,2 @@
+vhdl isim_temp "../sramtester.vhd"
+vhdl isim_temp "../sram_tb.vhd"

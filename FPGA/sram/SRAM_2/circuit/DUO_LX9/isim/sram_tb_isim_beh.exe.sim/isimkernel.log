@@ -1,0 +1,29 @@
+Command line:
+   sram_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  56289
+
+Wed Apr 28 10:35:30 2021
+
+
+ Elaboration Time: 0.15625 sec
+
+ Current Memory Usage: 5962.85 Meg
+
+ Total Signals          : 46
+ Total Nets             : 128
+ Total Signal Drivers   : 30
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 13
+ Total Traceable Variables  : 9
+ Total Scalar Nets and Variables : 489
+Total Line Count : 86
+
+ Total Simulation Time: 1.17188 sec
+
+ Current Memory Usage: 4704.56 Meg
+
+Wed Apr 28 12:12:36 2021
+

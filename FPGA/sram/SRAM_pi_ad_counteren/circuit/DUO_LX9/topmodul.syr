@@ -1,0 +1,580 @@
+Release 14.6 - xst P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: topmodul.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "topmodul.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "topmodul"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : topmodul
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"../../../../../../../../DesignLab-1.0.8/libraries/Benchy" "../../../../../../../../DesignLab-1.0.8/libraries/BitCoin_Miner" "../../../../../../../../DesignLab-1.0.8/libraries/Building_Blocks" "../../../../../../../../DesignLab-1.0.8/libraries/Clocks" "../../../../../../../../DesignLab-1.0.8/libraries/Gameduino" "../../../../../../../../DesignLab-1.0.8/libraries/HQVGA" "../../../../../../../../DesignLab-1.0.8/libraries/Papilio_Hardware" "../../../../../../../../DesignLab-1.0.8/libraries/RGB_Matrix" "../../../../../../../../DesignLab-1.0.8/libraries/Robot_Control_Library" "../../../../../../../../DesignLab-1.0.8/libraries/VGA_ZPUino" "../../../../../../../../DesignLab-1.0.8/libraries/VGA_ZXSpectrum" "../../../../../../../../DesignLab-1.0.8/libraries/ZPUino_2" "../../../../../../../../DesignLab-1.0.8/libraries/ZPUino_Wishbone_Peripherals"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\exram.vhd" into library work
+Parsing entity <exram>.
+Parsing architecture <Behavioral> of entity <exram>.
+Parsing VHDL file "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\topmodul.vhd" into library work
+Parsing entity <topmodul>.
+Parsing architecture <Behavioral> of entity <topmodul>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <topmodul> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <exram> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\exram.vhd" Line 45: Assignment to sclk ignored, since the identifier is never used
+WARNING:HDLCompiler:92 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\topmodul.vhd" Line 102: clk should be on the sensitivity list of the process
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <topmodul>.
+    Related source file is "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\topmodul.vhd".
+WARNING:Xst:647 - Input <rpi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <rpi_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\topmodul.vhd" line 79: Output port <test> of the instance <u1> is unconnected or connected to loadless signal.
+    Found 8-bit register for signal <sram_addr[7]_dff_4_OUT>.
+    Found 8-bit register for signal <sram_addr>.
+    Found 8-bit register for signal <addr>.
+    Found 1-bit register for signal <readWrite>.
+    Found 1-bit register for signal <_i000010<7>>.
+    Found 1-bit register for signal <_i000010<6>>.
+    Found 1-bit register for signal <_i000010<5>>.
+    Found 1-bit register for signal <_i000010<4>>.
+    Found 1-bit register for signal <_i000010<3>>.
+    Found 1-bit register for signal <_i000010<2>>.
+    Found 1-bit register for signal <_i000010<1>>.
+    Found 1-bit register for signal <_i000010<0>>.
+    Found 8-bit adder for signal <sram_addr[7]_GND_6_o_add_0_OUT> created at line 104.
+    Found 8-bit comparator equal for signal <n0006> created at line 110
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  33 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <topmodul> synthesized.
+
+Synthesizing Unit <exram>.
+    Related source file is "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_pi_ad_counteren\circuit\exram.vhd".
+WARNING:Xst:2563 - Inout <adi> is never assigned. Tied to value Z.
+WARNING:Xst:653 - Signal <test> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 2-bit register for signal <state_next>.
+    Found 2-bit register for signal <state_reg>.
+    Found 2-bit register for signal <RWMEMLED>.
+    Found 1-bit register for signal <sram_Ce>.
+    Found 8-bit register for signal <led>.
+    Found 1-bit register for signal <WEint>.
+    Found 8-bit register for signal <DO>.
+    Found 1-bit tristate buffer for signal <sram_data<7>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<6>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<5>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<4>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<3>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<2>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<1>> created at line 71
+    Found 1-bit tristate buffer for signal <sram_data<0>> created at line 71
+    Found 19-bit tristate buffer for signal <adi> created at line 25
+    Summary:
+	inferred  24 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+	inferred   9 Tristate(s).
+Unit <exram> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 19
+ 1-bit register                                        : 11
+ 2-bit register                                        : 3
+ 8-bit register                                        : 5
+# Comparators                                          : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 12
+ 1-bit 2-to-1 multiplexer                              : 9
+ 2-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 2
+# Tristates                                            : 9
+ 1-bit tristate buffer                                 : 8
+ 19-bit tristate buffer                                : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 57
+ Flip-Flops                                            : 57
+# Comparators                                          : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 12
+ 1-bit 2-to-1 multiplexer                              : 9
+ 2-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <RWMEMLED_0> in Unit <exram> is equivalent to the following FF/Latch, which will be removed : <sram_Ce> 
+WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
+   incompatible with the Spartan6 architecture. The two primary causes of this is
+   either a register or latch described with both an asynchronous set and
+   asynchronous reset, or a register or latch described with an asynchronous
+   set or reset which however has an initialization value of the opposite 
+   polarity (i.e. asynchronous reset with an initialization value of 1).
+    While this circuit can be built, it creates a sub-optimal implementation
+   in terms of area, power and performance. For a more optimal implementation
+   Xilinx highly recommends one of the following:
+
+          1) Remove either the set or reset from all registers and latches
+             if not needed for required functionality
+          2) Modify the code in order to produce a synchronous set
+             and/or reset (both is preferred)
+          3) Ensure all registers have the same initialization value as the
+             described asynchronous set or reset polarity
+          4) Use the -async_to_sync option to transform the asynchronous
+             set/reset to synchronous operation
+             (timing simulation highly recommended when using this option)
+
+  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
+
+  List of register instances with asynchronous set and reset:
+    _i000010_0 in unit <topmodul>
+    _i000010_2 in unit <topmodul>
+    _i000010_3 in unit <topmodul>
+    _i000010_1 in unit <topmodul>
+    _i000010_5 in unit <topmodul>
+    _i000010_6 in unit <topmodul>
+    _i000010_4 in unit <topmodul>
+    _i000010_7 in unit <topmodul>
+
+
+Optimizing unit <topmodul> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block topmodul, actual ratio is 1.
+FlipFlop u1/state_reg_0 has been replicated 1 time(s)
+FlipFlop u1/state_reg_1 has been replicated 1 time(s)
+FlipFlop sram_addr_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop sram_addr_0 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 74
+ Flip-Flops                                            : 74
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : topmodul.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 63
+#      INV                         : 2
+#      LUT2                        : 4
+#      LUT3                        : 17
+#      LUT4                        : 23
+#      LUT5                        : 10
+#      LUT6                        : 6
+#      VCC                         : 1
+# FlipFlops/Latches                : 82
+#      FD                          : 50
+#      FDC                         : 16
+#      FDP                         : 8
+#      LDC                         : 8
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 40
+#      IBUF                        : 11
+#      IOBUF                       : 8
+#      OBUF                        : 21
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              74  out of  11440     0%  
+ Number of Slice LUTs:                   62  out of   5720     1%  
+    Number used as Logic:                62  out of   5720     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     85
+   Number with an unused Flip Flop:      11  out of     85    12%  
+   Number with an unused LUT:            23  out of     85    27%  
+   Number of fully used LUT-FF pairs:    51  out of     85    60%  
+   Number of unique control sets:        26
+
+IO Utilization: 
+ Number of IOs:                          45
+ Number of bonded IOBs:                  42  out of    102    41%  
+    IOB Flip Flops/Latches:               8
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+---------------------------------------------------------------------+------------------------+-------+
+Clock Signal                                                         | Clock buffer(FF name)  | Load  |
+---------------------------------------------------------------------+------------------------+-------+
+clk                                                                  | BUFGP                  | 50    |
+pclk                                                                 | BUFGP                  | 24    |
+sram_addr[7]_GND_6_o_AND_6_o(Mmux_sram_addr[7]_GND_6_o_AND_6_o11:O)  | NONE(*)(_i000010_7_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_12_o(Mmux_sram_addr[7]_GND_6_o_AND_12_o11:O)| NONE(*)(_i000010_4_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_8_o(Mmux_sram_addr[7]_GND_6_o_AND_8_o11:O)  | NONE(*)(_i000010_6_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_10_o(Mmux_sram_addr[7]_GND_6_o_AND_10_o11:O)| NONE(*)(_i000010_5_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_18_o(Mmux_sram_addr[7]_GND_6_o_AND_18_o11:O)| NONE(*)(_i000010_1_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_14_o(Mmux_sram_addr[7]_GND_6_o_AND_14_o11:O)| NONE(*)(_i000010_3_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_16_o(Mmux_sram_addr[7]_GND_6_o_AND_16_o11:O)| NONE(*)(_i000010_2_LDC)| 1     |
+sram_addr[7]_GND_6_o_AND_20_o(Mmux_sram_addr[7]_GND_6_o_AND_20_o11:O)| NONE(*)(_i000010_0_LDC)| 1     |
+---------------------------------------------------------------------+------------------------+-------+
+(*) These 8 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.101ns (Maximum Frequency: 475.964MHz)
+   Minimum input arrival time before clock: 2.614ns
+   Maximum output required time after clock: 5.411ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.101ns (frequency: 475.964MHz)
+  Total number of paths / destination ports: 72 / 26
+-------------------------------------------------------------------------
+Delay:               2.101ns (Levels of Logic = 1)
+  Source:            u1/WEint (FF)
+  Destination:       u1/WEint (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: u1/WEint to u1/WEint
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.525   1.267  u1/WEint (u1/WEint)
+     LUT3:I0->O            1   0.235   0.000  u1/WEint_rstpot (u1/WEint_rstpot)
+     FD:D                      0.074          u1/WEint
+    ----------------------------------------
+    Total                      2.101ns (0.834ns logic, 1.267ns route)
+                                       (39.7% logic, 60.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 20 / 19
+-------------------------------------------------------------------------
+Offset:              2.614ns (Levels of Logic = 2)
+  Source:            sram_data<7> (PAD)
+  Destination:       u1/led_7 (FF)
+  Destination Clock: clk rising
+
+  Data Path: sram_data<7> to u1/led_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IOBUF:IO->O           1   1.328   0.958  sram_data_7_IOBUF (N3)
+     LUT4:I0->O            1   0.254   0.000  u1/led_7_rstpot (u1/led_7_rstpot)
+     FD:D                      0.074          u1/led_7
+    ----------------------------------------
+    Total                      2.614ns (1.656ns logic, 0.958ns route)
+                                       (63.4% logic, 36.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 37 / 29
+-------------------------------------------------------------------------
+Offset:              5.411ns (Levels of Logic = 2)
+  Source:            u1/WEint (FF)
+  Destination:       sram_OE (PAD)
+  Source Clock:      clk rising
+
+  Data Path: u1/WEint to sram_OE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.525   1.038  u1/WEint (u1/WEint)
+     INV:I->O              1   0.255   0.681  u1/sram_OE1_INV_0 (sram_OE_OBUF)
+     OBUF:I->O                 2.912          sram_OE_OBUF (sram_OE)
+    ----------------------------------------
+    Total                      5.411ns (3.692ns logic, 1.719ns route)
+                                       (68.2% logic, 31.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+clk                          |    2.101|         |         |         |
+pclk                         |    1.639|         |         |         |
+sram_addr[7]_GND_6_o_AND_10_o|         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_12_o|         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_14_o|         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_16_o|         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_18_o|         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_20_o|         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_6_o |         |    1.800|         |         |
+sram_addr[7]_GND_6_o_AND_8_o |         |    1.800|         |         |
+-----------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock pclk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.272|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_10_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    7.077|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_12_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    8.272|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_14_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    8.272|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_16_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    7.010|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_18_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    7.231|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_20_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    7.077|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_6_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    7.010|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sram_addr[7]_GND_6_o_AND_8_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    7.231|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.48 secs
+ 
+--> 
+
+Total memory usage is 4502372 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">sram_addr_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">exram</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">18 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sram_addr_1&gt; &lt;sram_addr_2&gt; &lt;sram_addr_3&gt; &lt;sram_addr_4&gt; &lt;sram_addr_5&gt; &lt;sram_addr_6&gt; &lt;sram_addr_7&gt; &lt;sram_addr_8&gt; &lt;sram_addr_9&gt; &lt;sram_addr_10&gt; &lt;sram_addr_11&gt; &lt;sram_addr_12&gt; &lt;sram_addr_13&gt; &lt;sram_addr_14&gt; &lt;sram_addr_15&gt; &lt;sram_addr_16&gt; &lt;sram_addr_17&gt; &lt;sram_addr_18&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sram_Ce</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">exram</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;RWMEMLED_0&gt; </arg>
+</msg>
+
+</messages>
+

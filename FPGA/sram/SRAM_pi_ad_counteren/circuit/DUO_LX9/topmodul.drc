@@ -1,0 +1,41 @@
+Release 14.6 Drc P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Mon May 10 17:40:41 2021
+
+drc -z topmodul.ncd topmodul.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_16_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_10_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_14_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_20_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_8_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_12_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_18_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   sram_addr[7]_GND_6_o_AND_6_o is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+DRC detected 0 errors and 8 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

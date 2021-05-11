@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Opskalering_05_05\circuit\DUO_LX9\exram.ncd
+OUTFILE=C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Opskalering_05_05\circuit\DUO_LX9\exram.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Opskalering_05_05\circuit\DUO_LX9
+LICENSE=WebPack
+USER_INFO=212136811_0_0_978

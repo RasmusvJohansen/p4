@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cnt_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">exram</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">RWMEMLED_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">exram</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;CS&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+</messages>
+

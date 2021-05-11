@@ -1,0 +1,8 @@
+Release 14.6 Drc P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Mon May 10 16:57:04 2021
+
+drc -z topmodul.ncd topmodul.pcf
+
+DRC detected 0 errors and 0 warnings.

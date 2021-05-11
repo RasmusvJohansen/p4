@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/jakob/OneDrive/Documents/DesignLab/SRAM_29/_04/circuit/DUO_LX9/exram_tb_isim_beh.exe" -prj "C:/Users/jakob/OneDrive/Documents/DesignLab/SRAM_29/_04/circuit/DUO_LX9/exram_tb_beh.prj" "work.exram_tb" 

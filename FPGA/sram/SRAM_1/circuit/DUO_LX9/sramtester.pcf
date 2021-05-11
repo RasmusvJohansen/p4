@@ -1,0 +1,32 @@
+//! **************************************************************************
+// Written by: Map P.68d on Mon Apr 26 09:16:46 2021
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "P144";
+PROHIBIT = SITE "P69";
+PROHIBIT = SITE "P60";
+COMP "sram_addr<4>" LOCATE = SITE "P11" LEVEL 1;
+COMP "clk" LOCATE = SITE "P94" LEVEL 1;
+COMP "sram_addr<5>" LOCATE = SITE "P5" LEVEL 1;
+COMP "sram_addr<6>" LOCATE = SITE "P2" LEVEL 1;
+COMP "sram_addr<7>" LOCATE = SITE "P1" LEVEL 1;
+COMP "sram_addr<8>" LOCATE = SITE "P143" LEVEL 1;
+COMP "sram_addr<9>" LOCATE = SITE "P142" LEVEL 1;
+COMP "sram_addr<10>" LOCATE = SITE "P43" LEVEL 1;
+COMP "sram_addr<11>" LOCATE = SITE "P41" LEVEL 1;
+COMP "sram_addr<12>" LOCATE = SITE "P40" LEVEL 1;
+COMP "sram_addr<20>" LOCATE = SITE "P30" LEVEL 1;
+COMP "sram_addr<13>" LOCATE = SITE "P35" LEVEL 1;
+COMP "sram_addr<14>" LOCATE = SITE "P34" LEVEL 1;
+COMP "sram_addr<15>" LOCATE = SITE "P27" LEVEL 1;
+COMP "sram_addr<16>" LOCATE = SITE "P29" LEVEL 1;
+COMP "sram_addr<17>" LOCATE = SITE "P33" LEVEL 1;
+COMP "sram_addr<18>" LOCATE = SITE "P32" LEVEL 1;
+COMP "sram_addr<19>" LOCATE = SITE "P44" LEVEL 1;
+COMP "sram_addr<0>" LOCATE = SITE "P7" LEVEL 1;
+COMP "sram_addr<1>" LOCATE = SITE "P8" LEVEL 1;
+COMP "sram_addr<2>" LOCATE = SITE "P9" LEVEL 1;
+COMP "sram_addr<3>" LOCATE = SITE "P10" LEVEL 1;
+SCHEMATIC END;
+
