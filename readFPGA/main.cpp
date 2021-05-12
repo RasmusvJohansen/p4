@@ -63,18 +63,18 @@ int main(void)
 		if(digitalRead(rx)==0){
 		read();
 		while(digitalRead(rx)==0){
-			cout << "den er her\n";
+			//cout << "den er her\n";
 			
 		}
-		cout << "gpio 2: " << digitalRead(pin2) << "\n";
+		/*cout << "gpio 2: " << digitalRead(pin2) << "\n";
 		cout << "gpio 4: " << digitalRead(pin4) << "\n";
 		cout << "gpio 17: " << digitalRead(pin17) << "\n";
 		cout << "gpio 27: " << digitalRead(pin27) << "\n";
 		cout << "gpio 22: " << digitalRead(pin22) << "\n";
 		cout << "gpio 23: " << digitalRead(pin23) << "\n";
 		cout << "gpio 24: " << digitalRead(pin24) << "\n";
-		cout << "gpio 25: " << digitalRead(pin25) << "\n";
-		delay(100);
+		cout << "gpio 25: " << digitalRead(pin25) << "\n";*/
+		delay(500);
 		a[0] = digitalRead(pin2);
 		a[1] = digitalRead(pin4);
 		a[2] = digitalRead(pin17);

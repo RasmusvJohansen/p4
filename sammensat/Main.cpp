@@ -37,7 +37,7 @@ struct brand{
 };
 brand brandPixels[m][n];
 
-
+int rawRGB555data[2*m*n];
 
 void fakeReadFPGA(){
 	for (int i=0; i<m; i++){
@@ -55,7 +55,7 @@ void fakeReadFPGA(){
 }
 
 #define pin2 2
-#define pin3 3
+#define pin4 4
 #define pin17 17
 #define pin27 27
 #define pin22 22
@@ -63,72 +63,118 @@ void fakeReadFPGA(){
 #define pin24 24
 #define pin25 25
 
-#define PCLK 8
+#define done 8
 #define rpi 7
+#define tx 26
+#define rx 16
 
 unsigned int number = 0b00000000;
-int a[7];
+char a[7];
 
 void read(){
-	digitalWrite(PCLK,0);
+	//digitalWrite(PCLK,0);
 	digitalWrite(rpi,1);
+	//digitalWrite(pin1, 1);
+	digitalWrite(tx,1);
 }
 
 void doneRead(){
-	digitalWrite(PCLK, 1);	
+	//digitalWrite(PCLK, 1);
+	//digitalWrite(pin1, 0);	
+	digitalWrite(rpi,0);
+	digitalWrite(tx,0);
 }
-
-
-int readFPGA(){
+void definePinMode(){
 	wiringPiSetupGpio();
-	pinMode(pin2, OUTPUT);
-	pinMode(pin3, OUTPUT);
+	pinMode(pin2, INPUT);
+	pinMode(pin4, INPUT);
 	pinMode(pin17, INPUT);
 	pinMode(pin27, INPUT);
 	pinMode(pin22, INPUT);
 	pinMode(pin23, INPUT);
 	pinMode(pin24, INPUT);
 	pinMode(pin25, INPUT);
-	pinMode(PCLK, OUTPUT);
+	//pinMode(PCLK, OUTPUT);
 	pinMode(rpi, OUTPUT);
-	//delay(0.2);
-	read();
-	a[0] = digitalRead(pin2);
-	a[1] = digitalRead(pin3);
-	a[2] = digitalRead(pin17);
-	a[3] = digitalRead(pin27);
-	a[4] = digitalRead(pin22);
-	a[5] = digitalRead(pin23);
-	a[6] = digitalRead(pin24);
-	a[7] = digitalRead(pin25);
-	//cout << a[0];
-	number = 0b00000000;
-	for (int i=0; i<8; i++){
-		number += a[i] << i;
+	pinMode(tx, OUTPUT);
+	pinMode(rx, INPUT);
+	pinMode(done, OUTPUT);
+}
+
+void readFPGA(){
+	for(int i = 0; i<1271*6; i++){
+		while(digitalRead(rx) == 1){}
+			read();
+			//delay(3);
+		while(digitalRead(rx) == 0){}
+		a[0] = digitalRead(pin2);
+		a[1] = digitalRead(pin4);
+		a[2] = digitalRead(pin17);
+		a[3] = digitalRead(pin27);
+		a[4] = digitalRead(pin22);
+		a[5] = digitalRead(pin23);
+		a[6] = digitalRead(pin24);
+		a[7] = digitalRead(pin25);
+		//cout << a[0];
+		number = 0b00000000;
+		for (int i=0; i<8; i++){
+			number += a[i] << i;
+		}
+		//cout << number << "\n";
+		doneRead();
+		rawRGB555data[i] = number;
+		cout << rawRGB555data[i] << " ";
+		//delay(3);
+		//cout << "DEN ER HER\n";
+		
+		
+	
 	}
-	cout << number << "\n";
-	doneRead();
-	return number;
+	//return number;
+	cout << "\n\n";
+	digitalWrite(done,1);
 	
 }
 
-void addToArray(){
-	for (int i=0; i<m; i++){
-		for(int j=0; j<n; j++){
-			readFPGA();
-			billede[i][j].R = number;
+void convertToRGB888(){
+	digitalWrite(done,0);
+	for (int i=0; i<n; i++){
+		int t = 0;
+		for(int j=0; j<1271; j=j+2){
+			billede[t][i].R = ((rawRGB555data[j] & 124) >> 2) * 8;
+			//cout << billede[i][t].R << " ";
+			billede[t][i].G = (((rawRGB555data[j] & 3) << 3) | ((rawRGB555data[j+1] & 224) >> 5))*8 ;
+			//cout << billede[i][t].G << " ";
+			billede[t][i].B = (rawRGB555data[j+1] & 31)*8;
+			//cout << billede[i][t].B << "\n";
+			t++;
 		}
-		for(int j=0; j<n; j++){
-			readFPGA();
-			billede[i][j].G = number;
-		}
-		for(int j=0; j<n; j++){
-			readFPGA();
-			billede[i][j].B = number;
-		}
+		
 	}
+	cout << "\n\n";
 }
 
+
+
+/*
+void addToArray(){
+	for (int i=0; i<m; i++){
+		int t = 0;
+		for(int j=0; j<n; j=j+2){
+			readFPGA();
+			billede[i][t].R = number;
+		}
+		for(int j=0; j<n; j=j+2){
+			readFPGA();
+			billede[i][t].G = number;
+		}
+		for(int j=0; j<n; j=j+2){
+			readFPGA();
+			billede[i][t].B = number;
+		}
+		t++;
+	}
+}*/
 
 
 void billedebehandling(){
@@ -196,7 +242,10 @@ void skalerKomprimer(){
 int main(){
 	std::chrono::steady_clock::time_point _start(std::chrono::steady_clock::now());
 	//fakeReadFPGA();
-	addToArray();
+	definePinMode();
+	readFPGA();
+	convertToRGB888();
+	//addToArray();
 	lavBMP();
 	billedebehandling();
 	skalerKomprimer();
