@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo g++ Main.cpp Image.cpp -o a.out `pkg-config --cflags --libs opencv` -lwiringPi -lpthread
+./a.out
