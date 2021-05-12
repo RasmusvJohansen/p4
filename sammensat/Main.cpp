@@ -71,19 +71,7 @@ void fakeReadFPGA(){
 unsigned int number = 0b00000000;
 char a[7];
 
-void read(){
-	//digitalWrite(PCLK,0);
-	digitalWrite(rpi,1);
-	//digitalWrite(pin1, 1);
-	digitalWrite(tx,1);
-}
 
-void doneRead(){
-	//digitalWrite(PCLK, 1);
-	//digitalWrite(pin1, 0);	
-	digitalWrite(rpi,0);
-	digitalWrite(tx,0);
-}
 void definePinMode(){
 	wiringPiSetupGpio();
 	pinMode(pin2, INPUT);
@@ -99,6 +87,20 @@ void definePinMode(){
 	pinMode(tx, OUTPUT);
 	pinMode(rx, INPUT);
 	pinMode(done, OUTPUT);
+}
+
+void read(){
+	//digitalWrite(PCLK,0);
+	digitalWrite(rpi,1);
+	//digitalWrite(pin1, 1);
+	digitalWrite(tx,1);
+}
+
+void doneRead(){
+	//digitalWrite(PCLK, 1);
+	//digitalWrite(pin1, 0);	
+	digitalWrite(rpi,0);
+	digitalWrite(tx,0);
 }
 
 void readFPGA(){
