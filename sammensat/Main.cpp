@@ -63,7 +63,10 @@ void fakeReadFPGA(){
 #define pin24 24
 #define pin25 25
 
+
+#define flagD 12
 #define done 8
+#define mem 6
 #define rpi 7
 #define tx 26
 #define rx 16
@@ -74,6 +77,7 @@ char a[7];
 
 void definePinMode(){
 	wiringPiSetupGpio();
+	pinMode(flagD, INPUT);
 	pinMode(pin2, INPUT);
 	pinMode(pin4, INPUT);
 	pinMode(pin17, INPUT);
@@ -87,47 +91,62 @@ void definePinMode(){
 	pinMode(tx, OUTPUT);
 	pinMode(rx, INPUT);
 	pinMode(done, OUTPUT);
+	pinMode(mem, OUTPUT);
 }
 
 void read(){
 	//digitalWrite(PCLK,0);
-	digitalWrite(rpi,1);
+	//digitalWrite(rpi,1);
 	//digitalWrite(pin1, 1);
 	digitalWrite(tx,1);
+	
 }
 
 void doneRead(){
 	//digitalWrite(PCLK, 1);
 	//digitalWrite(pin1, 0);	
-	digitalWrite(rpi,0);
+	//digitalWrite(rpi,0);
 	digitalWrite(tx,0);
+	//digitalWrite(mem,0);
 }
 
 void readFPGA(){
-	for(int i = 0; i<1271*6; i++){
-		while(digitalRead(rx) == 1){}
+	
+	for(int j = 0; j<1271*480; j++){
+		//while(digitalRead(done2)==0){cout << "her\n";}
+			while(digitalRead(rx) == 1){}
+			
 			read();
 			//delay(3);
-		while(digitalRead(rx) == 0){}
-		a[0] = digitalRead(pin2);
-		a[1] = digitalRead(pin4);
-		a[2] = digitalRead(pin17);
-		a[3] = digitalRead(pin27);
-		a[4] = digitalRead(pin22);
-		a[5] = digitalRead(pin23);
-		a[6] = digitalRead(pin24);
-		a[7] = digitalRead(pin25);
-		//cout << a[0];
-		number = 0b00000000;
-		for (int i=0; i<8; i++){
-			number += a[i] << i;
-		}
-		//cout << number << "\n";
-		doneRead();
-		rawRGB555data[i] = number;
-		cout << rawRGB555data[i] << " ";
-		//delay(3);
-		//cout << "DEN ER HER\n";
+		
+			while(digitalRead(rx) == 0){}
+			a[0] = digitalRead(pin2);
+			//delay(0.1);
+			a[1] = digitalRead(pin4);
+			//delay(0.1);
+			a[2] = digitalRead(pin17);
+			//delay(0.1);
+			a[3] = digitalRead(pin27);
+			//delay(0.1);
+			a[4] = digitalRead(pin22);
+			//delay(0.1);
+			a[5] = digitalRead(pin23);
+			//delay(0.1);
+			a[6] = digitalRead(pin24);
+			//delay(0.1);
+			a[7] = digitalRead(pin25);
+			//cout << a[0];
+			number = 0b00000000;
+			//delay(0.1);
+			for (int i=0; i<8; i++){
+				number += a[i] << i;
+			}
+			//cout << number << "\n";
+			doneRead();
+			rawRGB555data[j] = number;
+			cout << rawRGB555data[j] << " ";
+			//delay(3);
+			//cout << "DEN ER HER\n";
 		
 		
 	
@@ -241,10 +260,19 @@ void skalerKomprimer(){
 
 
 
-int main(){
+int main(){	
+	
 	std::chrono::steady_clock::time_point _start(std::chrono::steady_clock::now());
 	//fakeReadFPGA();
 	definePinMode();
+	digitalWrite(rpi, 0);
+	cout << "venter på at kamera når start" << "\n";
+	while(digitalRead(flagD) == 0);
+	while(digitalRead(flagD) == 1){cout <<"her\n";}
+	cout << "kamera tager billede" << "\n";
+	while(digitalRead(flagD) == 0){cout <<"her2\n";}
+	cout << "kamera er færdig med at tage billede";
+	//digitalWrite(rpi, 1);
 	readFPGA();
 	convertToRGB888();
 	//addToArray();
