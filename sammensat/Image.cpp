@@ -38,7 +38,7 @@ Color Image::GetColor(int x, int y) const
     return m_colors[y * m_width +x];
 }
 
-void Image::SetColor(const Color& color, int x, int y)
+void Image::SetColor(const Color& color, volatile int x, volatile int y)
 {
     m_colors[y * m_width + x].r = color.r;
     m_colors[y * m_width + x].g = color.g;
@@ -154,9 +154,9 @@ void Image::Export(const char* path) const
     f.write(reinterpret_cast<char*>(fileHeader),(fileHeaderSize));
     f.write(reinterpret_cast<char*>(informationHeader),informationHeaderSize);
 
-    for (int y = 0; y < m_height; y++)
+    for (volatile int y = 0; y < m_height; y++)
         {
-            for(int x = 0; x < m_width; x++)
+            for(volatile int x = 0; x < m_width; x++)
             {
                 unsigned char r = static_cast<unsigned char>(GetColor(x,y).r * 1); //255.0f);
                 unsigned char g = static_cast<unsigned char>(GetColor(x,y).g * 1); //255.0f);

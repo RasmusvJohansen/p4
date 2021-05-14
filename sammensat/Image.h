@@ -5,26 +5,26 @@
 
 
 struct Color {
-    float r, g, b;
+    volatile float r, g, b;
     Color();
-    Color(float r, float g, float b);
+    Color(volatile float r, volatile float g, volatile float b);
     ~Color(); 
 };
 
 class Image
 {
 public:
-    Image(int width, int height);
+    Image(volatile int width, volatile int height);
     ~Image();
 
-    Color GetColor(int x, int y) const;
+    Color GetColor(volatile int x, volatile int y) const;
     void SetColor(const Color& color, int x, int y);
 
     void Export(const char* path) const; // this will generate the file
 
 private:
-    int m_width;
-    int m_height;
+    volatile int m_width;
+    volatile int m_height;
     std::vector<Color> m_colors; 
 };
 #endif

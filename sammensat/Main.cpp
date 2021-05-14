@@ -28,16 +28,16 @@ String filepath = "test";
 
 //Struct til at gemme RGB data for hver pixel
 struct pixel{
-	int R, G, B;
+	volatile int R, G, B;
 };
 pixel billede[m][n];
 
 struct brand{
-	int i, j;
+	volatile int i, j;
 };
 brand brandPixels[m][n];
 
-int rawRGB555data[2*m*n];
+volatile int rawRGB555data[2*m*n];
 
 void fakeReadFPGA(){
 	for (int i=0; i<m; i++){
@@ -68,10 +68,14 @@ void fakeReadFPGA(){
 #define done 8
 #define mem 6
 #define rpi 7
-#define tx 26
-#define rx 16
+//#define tx 26
+//#define rx 16
 
-unsigned int number = 0b00000000;
+volatile int tx = 26;
+volatile int rx = 16;
+
+
+volatile unsigned int number = 0;
 char a[7];
 
 
@@ -96,7 +100,7 @@ void definePinMode(){
 
 void read(){
 	//digitalWrite(PCLK,0);
-	//digitalWrite(rpi,1);
+	digitalWrite(rpi,1);
 	//digitalWrite(pin1, 1);
 	digitalWrite(tx,1);
 	
@@ -105,14 +109,14 @@ void read(){
 void doneRead(){
 	//digitalWrite(PCLK, 1);
 	//digitalWrite(pin1, 0);	
-	//digitalWrite(rpi,0);
+	digitalWrite(rpi,0);
 	digitalWrite(tx,0);
 	//digitalWrite(mem,0);
 }
 
 void readFPGA(){
 	
-	for(int j = 0; j<1271*480; j++){
+	for(int j = 0; j<1271*6; j++){
 		//while(digitalRead(done2)==0){cout << "her\n";}
 			while(digitalRead(rx) == 1){}
 			
@@ -235,7 +239,7 @@ void lavBMP(){
 			image.SetColor(Color(billede[i][j].R,billede[i][j].G,billede[i][j].B), i, j);
         }	
     }
-    image.Export("test/random.bmp");
+    image.Export("test2/main.bmp");
 
 }
 
@@ -250,8 +254,8 @@ void skalerKomprimer(){
     //imwrite("test/random.jpg",gemtBillede);
     putText(gemtBillede,"57.01176883,9.983356667", Point(10,10),
 	FONT_HERSHEY_PLAIN,0.7,Scalar(225,255,250),0.1,CV_AVX);
-    imwrite("test/skaleretRandom.jpg", gemtBillede, {IMWRITE_JPEG_QUALITY, 15});
-    imwrite("test/skalretRandom.bmp",gemtBillede);
+    imwrite("test2/skaleretMain.jpg", gemtBillede, {IMWRITE_JPEG_QUALITY, 15});
+    imwrite("test2/skaleretMain.bmp",gemtBillede);
     cout << "Skaleret gemt .bmp\n";
     cout << "Komprimeret gemt .jpg\n";
     
@@ -265,12 +269,12 @@ int main(){
 	std::chrono::steady_clock::time_point _start(std::chrono::steady_clock::now());
 	//fakeReadFPGA();
 	definePinMode();
-	digitalWrite(rpi, 0);
+	//digitalWrite(rpi, 0);
 	cout << "venter på at kamera når start" << "\n";
-	while(digitalRead(flagD) == 0);
-	while(digitalRead(flagD) == 1){cout <<"her\n";}
+	//while(digitalRead(flagD) == 0);
+	//while(digitalRead(flagD) == 1){cout <<"her\n";}
 	cout << "kamera tager billede" << "\n";
-	while(digitalRead(flagD) == 0){cout <<"her2\n";}
+	//while(digitalRead(flagD) == 0){cout <<"her2\n";}
 	cout << "kamera er færdig med at tage billede";
 	//digitalWrite(rpi, 1);
 	readFPGA();
