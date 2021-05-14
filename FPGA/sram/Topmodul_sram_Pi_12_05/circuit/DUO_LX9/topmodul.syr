@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Reading design: topmodul.prj
 
@@ -283,10 +283,10 @@ Primitive and Black Box Usage:
 #      FDSE                        : 1
 # Clock Buffers                    : 2
 #      BUFGP                       : 2
-# IO Buffers                       : 50
+# IO Buffers                       : 49
 #      IBUF                        : 14
 #      IOBUF                       : 8
-#      OBUF                        : 28
+#      OBUF                        : 27
 
 Device utilization summary:
 ---------------------------
@@ -307,8 +307,8 @@ Slice Logic Distribution:
    Number of unique control sets:         9
 
 IO Utilization: 
- Number of IOs:                          54
- Number of bonded IOBs:                  52  out of    102    50%  
+ Number of IOs:                          53
+ Number of bonded IOBs:                  51  out of    102    50%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
@@ -346,7 +346,7 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 3.621ns (Maximum Frequency: 276.205MHz)
+   Minimum period: 3.597ns (Maximum Frequency: 277.990MHz)
    Minimum input arrival time before clock: 4.345ns
    Maximum output required time after clock: 5.411ns
    Maximum combinational path delay: No path found
@@ -379,30 +379,29 @@ Delay:               3.226ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'pclk'
-  Clock period: 3.621ns (frequency: 276.205MHz)
+  Clock period: 3.597ns (frequency: 277.990MHz)
   Total number of paths / destination ports: 260 / 13
 -------------------------------------------------------------------------
-Delay:               3.621ns (Levels of Logic = 6)
-  Source:            addr_buff_pclk_9 (FF)
+Delay:               3.597ns (Levels of Logic = 5)
+  Source:            addr_buff_pclk_10 (FF)
   Destination:       addr_buff_pclk_12 (FF)
   Source Clock:      pclk rising
   Destination Clock: pclk rising
 
-  Data Path: addr_buff_pclk_9 to addr_buff_pclk_12
+  Data Path: addr_buff_pclk_10 to addr_buff_pclk_12
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              15   0.525   1.155  addr_buff_pclk_9 (addr_buff_pclk_9)
-     LUT1:I0->O            1   0.254   0.000  Mcount_addr_buff_pclk_cy<9>_rt (Mcount_addr_buff_pclk_cy<9>_rt)
-     MUXCY:S->O            1   0.215   0.000  Mcount_addr_buff_pclk_cy<9> (Mcount_addr_buff_pclk_cy<9>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_addr_buff_pclk_cy<10> (Mcount_addr_buff_pclk_cy<10>)
+     FD:C->Q              15   0.525   1.155  addr_buff_pclk_10 (addr_buff_pclk_10)
+     LUT1:I0->O            1   0.254   0.000  Mcount_addr_buff_pclk_cy<10>_rt (Mcount_addr_buff_pclk_cy<10>_rt)
+     MUXCY:S->O            1   0.215   0.000  Mcount_addr_buff_pclk_cy<10> (Mcount_addr_buff_pclk_cy<10>)
      MUXCY:CI->O           0   0.023   0.000  Mcount_addr_buff_pclk_cy<11> (Mcount_addr_buff_pclk_cy<11>)
      XORCY:CI->O           1   0.206   0.910  Mcount_addr_buff_pclk_xor<12> (Result<12>1)
      LUT4:I1->O            1   0.235   0.000  addr_buff_pclk_12_rstpot (addr_buff_pclk_12_rstpot)
      FD:D                      0.074          addr_buff_pclk_12
     ----------------------------------------
-    Total                      3.621ns (1.556ns logic, 2.065ns route)
-                                       (43.0% logic, 57.0% route)
+    Total                      3.597ns (1.532ns logic, 2.065ns route)
+                                       (42.6% logic, 57.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -418,7 +417,7 @@ Offset:              4.345ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            15   1.328   1.383  vsync_IBUF (vsync_IBUF)
-     LUT3:I0->O           13   0.235   1.097  _n0066_inv1 (_n0066_inv)
+     LUT3:I0->O           13   0.235   1.097  _n0065_inv1 (_n0065_inv)
      FDE:CE                    0.302          sram_addr_0
     ----------------------------------------
     Total                      4.345ns (1.865ns logic, 2.480ns route)
@@ -426,7 +425,7 @@ Offset:              4.345ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 44 / 36
+  Total number of paths / destination ports: 43 / 35
 -------------------------------------------------------------------------
 Offset:              5.411ns (Levels of Logic = 2)
   Source:            u1/WEint (FF)
@@ -463,14 +462,14 @@ Clock to Setup on destination clock pclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-pclk           |    3.621|         |         |         |
+pclk           |    3.597|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.81 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.01 secs
  
 --> 
 

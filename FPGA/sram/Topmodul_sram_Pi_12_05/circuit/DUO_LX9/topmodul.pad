@@ -1,7 +1,7 @@
 Release 14.6 - par P.68d (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu May 13 10:17:37 2021
+Fri May 14 12:07:48 2021
 
 
 # NOTE: This file is designed to be imported into a spreadsheet program
@@ -96,7 +96,7 @@ P74||IOBS|IO_L74N_DOUT_BUSY_1|UNUSED||1|||||||||
 P75||IOBM|IO_L74P_AWAKE_1|UNUSED||1|||||||||
 P76|||VCCO_1|||1|||||3.30||||
 P77|||GND||||||||||||
-P78|checkSignal|IOB|IO_L47N_1|OUTPUT|LVTTL|1|12|SLOW||||LOCATED|NO|NONE|
+P78|mem2|IOB|IO_L47N_1|INPUT|LVTTL|1||||NONE||LOCATED|NO|NONE|
 P79||IOBM|IO_L47P_1|UNUSED||1|||||||||
 P80|reset|IOB|IO_L46N_1|INPUT|LVTTL|1||||NONE||LOCATED|NO|NONE|
 P81||IOBM|IO_L46P_1|UNUSED||1|||||||||
@@ -133,7 +133,7 @@ P111||IOBS|IO_L66N_SCP0_0|UNUSED||0|||||||||
 P112||IOBM|IO_L66P_SCP1_0|UNUSED||0|||||||||
 P113|||GND||||||||||||
 P114|pclk|IOB|IO_L65N_SCP2_0|INPUT|LVTTL|0||||NONE||LOCATED|NO|NONE|
-P115|mem2|IOB|IO_L65P_SCP3_0|INPUT|LVTTL|0||||NONE||LOCATED|NO|NONE|
+P115||IOBM|IO_L65P_SCP3_0|UNUSED||0|||||||||
 P116||IOBS|IO_L64N_SCP4_0|UNUSED||0|||||||||
 P117||IOBM|IO_L64P_SCP5_0|UNUSED||0|||||||||
 P118||IOBS|IO_L63N_SCP6_0|UNUSED||0|||||||||

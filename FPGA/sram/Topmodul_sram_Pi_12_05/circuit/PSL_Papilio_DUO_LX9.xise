@@ -1197,12 +1197,12 @@
     <!-- project is analyzed based on files automatically identified as       -->
     <!-- include files.                                                       -->
     <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/main_pll.v" xil_pn:type="FILE_VERILOG"/>
-    <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/raw7seg.v" xil_pn:type="FILE_VERILOG"/>
-    <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/serial.v" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/sha-256-functions.v" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/sha256_transform.v" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/uart_receiver.v" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/uart_transmitter.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/serial.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="C:/DesignLab-1.0.8/libraries/BitCoin_Miner/raw7seg.v" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="C:/DesignLab-1.0.8/libraries/Gameduino/revision.v" xil_pn:type="FILE_VERILOG"/>
   </autoManagedFiles>
 

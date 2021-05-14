@@ -52,7 +52,7 @@ entity topmodul is
 			  TX					: out std_logic;
 			  RX					: IN std_logic;
 			  reset				: IN std_logic;
-			  checkSignal				: OUT std_logic;
+			  --checkSignal				: OUT std_logic;
 			  test2				: out std_logic
 			  );
 end topmodul;
@@ -90,7 +90,7 @@ signal state_next:std_logic_vector(1 downto 0);
 signal state_reg: std_logic_vector(1 downto 0);
 
 
-signal addr_buff_pclk: std_logic_vector(12 downto 0);
+signal addr_buff_pclk: std_logic_vector(12 downto 0):="0000000000000";
 signal addr_buff_rpi : std_logic_vector(12 downto 0):= "0000000000000"; 
 
 signal test : std_logic_vector(1 downto 0);
@@ -102,7 +102,7 @@ u1: exram port map(sram_data => sram_data, Di => Di2, led => led2, RWMEMLED => R
 
 sclk <= cnt(13);
 
-Checksignal <= flagA;
+--Checksignal <= flagA;
 
 --sram_addr <= "00001000";
 
