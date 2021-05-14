@@ -1,0 +1,489 @@
+Release 14.6 - xst P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: topmodul.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "topmodul.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "topmodul"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : topmodul
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"../../../../../../../../DesignLab-1.0.8/libraries/Benchy" "../../../../../../../../DesignLab-1.0.8/libraries/BitCoin_Miner" "../../../../../../../../DesignLab-1.0.8/libraries/Building_Blocks" "../../../../../../../../DesignLab-1.0.8/libraries/Clocks" "../../../../../../../../DesignLab-1.0.8/libraries/Gameduino" "../../../../../../../../DesignLab-1.0.8/libraries/HQVGA" "../../../../../../../../DesignLab-1.0.8/libraries/Papilio_Hardware" "../../../../../../../../DesignLab-1.0.8/libraries/RGB_Matrix" "../../../../../../../../DesignLab-1.0.8/libraries/Robot_Control_Library" "../../../../../../../../DesignLab-1.0.8/libraries/VGA_ZPUino" "../../../../../../../../DesignLab-1.0.8/libraries/VGA_ZXSpectrum" "../../../../../../../../DesignLab-1.0.8/libraries/ZPUino_2" "../../../../../../../../DesignLab-1.0.8/libraries/ZPUino_Wishbone_Peripherals"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\exram.vhd" into library work
+Parsing entity <exram>.
+Parsing architecture <Behavioral> of entity <exram>.
+Parsing VHDL file "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\topmodul.vhd" into library work
+Parsing entity <topmodul>.
+Parsing architecture <Behavioral> of entity <topmodul>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <topmodul> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <exram> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\exram.vhd" Line 45: Assignment to sclk ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\topmodul.vhd" Line 107: Assignment to sclk ignored, since the identifier is never used
+WARNING:HDLCompiler:92 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\topmodul.vhd" Line 181: dannebro should be on the sensitivity list of the process
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <topmodul>.
+    Related source file is "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\topmodul.vhd".
+WARNING:Xst:647 - Input <rpi_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\topmodul.vhd" line 105: Output port <test> of the instance <u1> is unconnected or connected to loadless signal.
+    Found 3-bit register for signal <test>.
+    Found 1-bit register for signal <readWrite>.
+    Found 20-bit register for signal <addr_buff_rpi>.
+    Found 1-bit register for signal <flagA>.
+    Found 20-bit register for signal <addr_buff_pclk>.
+    Found 1-bit register for signal <flagB>.
+    Found 1-bit register for signal <TX>.
+    Found 20-bit register for signal <sram_addr>.
+    Found 1-bit register for signal <flagS>.
+    Found 1-bit register for signal <flagD>.
+    Found 1-bit register for signal <dannebro>.
+    Found 20-bit adder for signal <addr_buff_rpi[19]_GND_6_o_add_5_OUT> created at line 145.
+    Found 20-bit adder for signal <addr_buff_pclk[19]_GND_6_o_add_18_OUT> created at line 185.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  70 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <topmodul> synthesized.
+
+Synthesizing Unit <exram>.
+    Related source file is "C:\Users\jakob\OneDrive\Documents\DesignLab\SRAM_Kamera_pi_13_05\circuit\exram.vhd".
+WARNING:Xst:2563 - Inout <adi> is never assigned. Tied to value Z.
+WARNING:Xst:653 - Signal <test> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 2-bit register for signal <state_next>.
+    Found 2-bit register for signal <state_reg>.
+    Found 2-bit register for signal <RWMEMLED>.
+    Found 1-bit register for signal <sram_Ce>.
+    Found 8-bit register for signal <led>.
+    Found 1-bit register for signal <WEint>.
+    Found 8-bit register for signal <DO>.
+    Found 1-bit tristate buffer for signal <sram_data<7>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<6>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<5>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<4>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<3>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<2>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<1>> created at line 58
+    Found 1-bit tristate buffer for signal <sram_data<0>> created at line 58
+    Found 19-bit tristate buffer for signal <adi> created at line 25
+    Summary:
+	inferred  24 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+	inferred   9 Tristate(s).
+Unit <exram> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 20-bit adder                                          : 2
+# Registers                                            : 18
+ 1-bit register                                        : 9
+ 2-bit register                                        : 3
+ 20-bit register                                       : 3
+ 3-bit register                                        : 1
+ 8-bit register                                        : 2
+# Multiplexers                                         : 8
+ 1-bit 2-to-1 multiplexer                              : 1
+ 2-bit 2-to-1 multiplexer                              : 1
+ 20-bit 2-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 3
+ 8-bit 2-to-1 multiplexer                              : 2
+# Tristates                                            : 9
+ 1-bit tristate buffer                                 : 8
+ 19-bit tristate buffer                                : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <topmodul>.
+The following registers are absorbed into counter <addr_buff_rpi>: 1 register on signal <addr_buff_rpi>.
+The following registers are absorbed into counter <addr_buff_pclk>: 1 register on signal <addr_buff_pclk>.
+Unit <topmodul> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 20-bit up counter                                     : 2
+# Registers                                            : 54
+ Flip-Flops                                            : 54
+# Multiplexers                                         : 8
+ 1-bit 2-to-1 multiplexer                              : 1
+ 2-bit 2-to-1 multiplexer                              : 1
+ 20-bit 2-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 3
+ 8-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <RWMEMLED_0> in Unit <exram> is equivalent to the following FF/Latch, which will be removed : <sram_Ce> 
+
+Optimizing unit <topmodul> ...
+INFO:Xst:3203 - The FF/Latch <TX> in Unit <topmodul> is the opposite to the following FF/Latch, which will be removed : <flagB> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block topmodul, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 92
+ Flip-Flops                                            : 92
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : topmodul.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 207
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 38
+#      LUT2                        : 6
+#      LUT3                        : 30
+#      LUT4                        : 26
+#      LUT5                        : 16
+#      LUT6                        : 6
+#      MUXCY                       : 38
+#      VCC                         : 1
+#      XORCY                       : 40
+# FlipFlops/Latches                : 92
+#      FD                          : 27
+#      FDE                         : 38
+#      FDR                         : 4
+#      FDRE                        : 21
+#      FDSE                        : 2
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 58
+#      IBUF                        : 14
+#      IOBUF                       : 8
+#      OBUF                        : 36
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              92  out of  11440     0%  
+ Number of Slice LUTs:                  127  out of   5720     2%  
+    Number used as Logic:               127  out of   5720     2%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    136
+   Number with an unused Flip Flop:      44  out of    136    32%  
+   Number with an unused LUT:             9  out of    136     6%  
+   Number of fully used LUT-FF pairs:    83  out of    136    61%  
+   Number of unique control sets:        10
+
+IO Utilization: 
+ Number of IOs:                          63
+ Number of bonded IOBs:                  60  out of    102    58%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 72    |
+pclk                               | BUFGP                  | 20    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 4.569ns (Maximum Frequency: 218.866MHz)
+   Minimum input arrival time before clock: 4.660ns
+   Maximum output required time after clock: 5.411ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.769ns (frequency: 265.322MHz)
+  Total number of paths / destination ports: 463 / 126
+-------------------------------------------------------------------------
+Delay:               3.769ns (Levels of Logic = 1)
+  Source:            test_2 (FF)
+  Destination:       sram_addr_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: test_2 to sram_addr_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            25   0.525   1.403  test_2 (test_2)
+     LUT3:I2->O           20   0.254   1.285  _n0149_inv1 (_n0149_inv)
+     FDE:CE                    0.302          sram_addr_0
+    ----------------------------------------
+    Total                      3.769ns (1.081ns logic, 2.688ns route)
+                                       (28.7% logic, 71.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'pclk'
+  Clock period: 4.569ns (frequency: 218.866MHz)
+  Total number of paths / destination ports: 630 / 20
+-------------------------------------------------------------------------
+Delay:               4.569ns (Levels of Logic = 3)
+  Source:            addr_buff_pclk_6 (FF)
+  Destination:       addr_buff_pclk_0 (FF)
+  Source Clock:      pclk rising
+  Destination Clock: pclk rising
+
+  Data Path: addr_buff_pclk_6 to addr_buff_pclk_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               4   0.525   1.234  addr_buff_pclk_6 (addr_buff_pclk_6)
+     LUT6:I1->O            2   0.254   0.954  _n01001 (_n01001)
+     LUT6:I3->O           11   0.235   1.039  _n01005 (_n0100)
+     LUT4:I3->O            1   0.254   0.000  addr_buff_pclk_0_rstpot (addr_buff_pclk_0_rstpot)
+     FD:D                      0.074          addr_buff_pclk_0
+    ----------------------------------------
+    Total                      4.569ns (1.342ns logic, 3.227ns route)
+                                       (29.4% logic, 70.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 119 / 70
+-------------------------------------------------------------------------
+Offset:              4.660ns (Levels of Logic = 2)
+  Source:            rpi (PAD)
+  Destination:       addr_buff_rpi_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rpi to addr_buff_rpi_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            22   1.328   1.334  rpi_IBUF (rpi_IBUF)
+     LUT2:I1->O           20   0.254   1.285  _n00931 (_n0093)
+     FDRE:R                    0.459          addr_buff_rpi_0
+    ----------------------------------------
+    Total                      4.660ns (2.041ns logic, 2.619ns route)
+                                       (43.8% logic, 56.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 51 / 43
+-------------------------------------------------------------------------
+Offset:              5.411ns (Levels of Logic = 2)
+  Source:            u1/WEint (FF)
+  Destination:       sram_OE (PAD)
+  Source Clock:      clk rising
+
+  Data Path: u1/WEint to sram_OE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.525   1.038  u1/WEint (u1/WEint)
+     INV:I->O              1   0.255   0.681  u1/sram_OE1_INV_0 (sram_OE_OBUF)
+     OBUF:I->O                 2.912          sram_OE_OBUF (sram_OE)
+    ----------------------------------------
+    Total                      5.411ns (3.692ns logic, 1.719ns route)
+                                       (68.2% logic, 31.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.769|         |         |         |
+pclk           |    1.694|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock pclk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.124|         |         |         |
+pclk           |    4.569|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.39 secs
+ 
+--> 
+
+Total memory usage is 4502372 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+
